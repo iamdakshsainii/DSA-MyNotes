@@ -1,0 +1,70 @@
+//    why to use stringbuilder
+//    1. The String class is immutable while it is not
+//    2. StringBuffer is fast and consumes less memory when we concatenate t strings.
+
+
+
+//  Methods
+
+1. StringBuilder append() method  // age judega with space
+sb.append("Java");
+
+2. StringBuilder insert() method  // (index,string)
+sb.insert(1,"Java");
+
+3. StringBuilder delete() method  //  (beg,end)
+sb.delete(1,3);  
+
+4. StringBuilder reverse() method 
+sb.reverse();  
+
+5. StringBuilder sb= new StringBuilder(s) // you can also add s as input in builder and then modify by set method
+sb.set(i, p.charAt(i))
+
+>> convert array back to string
+
+Join the words back into a single string with spaces
+      StringBuilder result = new StringBuilder();
+      for (int i = 0; i < n; i++) {
+          result.append(words[i]);
+          if (i < n - 1) {
+              result.append(" ");
+          }
+      }
+
+
+
+// insert
+kabhi kabhi insert krna ho string m reference k liye check 
+question practice m space insertion in string 
+to us time yaad rakho ki phle stringbuilder m s ko intialise kra lo
+ab insert krva skte ho 
+
+example
+// Example 1:
+// Input: s = "LeetcodeHelpsMeLearn", spaces = [8,13,15]
+// Output: "Leetcode Helps Me Learn"
+// Explanation: 
+// The indices 8, 13, and 15 correspond to the underlined characters in "LeetcodeHelpsMeLearn".
+// We then place spaces before those characters.
+
+
+
+
+// learning is string is immutable so dont change by insert
+//instead use stringbuilder(s) in which i is intialised and then
+//insert only
+class Solution {
+    public String addSpaces(String s, int[] spaces) {
+         int n=s.length();
+         int cntspace=0;
+         StringBuilder sb= new StringBuilder(s);
+         for(int i=0;i<n;i++){
+              if(cntspace<spaces.length){
+               sb.insert(spaces[i]+cntspace ," ");
+               cntspace++;
+         }
+         }
+         return sb.toString();
+    }
+}

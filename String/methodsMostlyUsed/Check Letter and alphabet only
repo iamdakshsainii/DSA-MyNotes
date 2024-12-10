@@ -1,0 +1,10 @@
+niche code m h ki stringbuilder m char bhrne h but dyan rkhna h ki 
+other symbol na aye isliye check lagaya h ki sirf LetterorDigit h to append hovo
+
+
+StringBuilder str= new StringBuilder();
+for (int i = 0; i < s.length(); i++) {
+    if (Character.isLetterOrDigit(s.charAt(i))) {
+        str.append(s.charAt(i));
+    }
+}

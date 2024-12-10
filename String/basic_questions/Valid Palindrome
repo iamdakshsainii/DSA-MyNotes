@@ -1,0 +1,35 @@
+A phrase is a palindrome if, after converting all uppercase letters into 
+lowercase letters and removing all non-alphanumeric characters, it reads the same forward 
+and backward. Alphanumeric characters include letters and numbers.
+Given a string s, return true if it is a palindrome, or false otherwise.
+
+Example 1:
+Input: s = "A man, a plan, a canal: Panama"
+Output: true
+Explanation: "amanaplanacanalpanama" is a palindrome.
+
+Approch
+age piche pointer but problem is ki isme other char bhi aa skte h to phle tumhe lowercase m krna h
+then phir stringbuilder m sari values ko dalni h with conditon or method of check LetterOrDigit
+
+
+
+class Solution {
+    public boolean isPalindrome(String s) {
+        int n=s.length();
+        s = s.toLowerCase();
+        StringBuilder str= new StringBuilder();
+        for (int i = 0; i < s.length(); i++) {
+            if (Character.isLetterOrDigit(s.charAt(i))) {
+                str.append(s.charAt(i));
+            }
+        }
+        int m=str.length();
+        for(int i=0;i<m/2;i++){
+              if(str.charAt(i) != str.charAt(m-i-1)){
+                     return false;
+              }
+        }
+        return true;
+    }
+}

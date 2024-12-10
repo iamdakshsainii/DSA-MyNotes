@@ -1,0 +1,48 @@
+//Method 1
+// 1. phle ascii value k according index pr set krdenge (yaha par a-> 0 likewise)
+// 2. then hum jb array aa jayegi to vo ascending m hogi now mujhe hr index pr occurance k according
+// dekhna h use s+i se vps char m convert krdenge and loop for how many time that char comes
+
+
+// Method 2
+// Sort String
+// In Java (Arrays.sort):
+// For primitive types (e.g., int[], char[]), Arrays.sort() uses a Dual-Pivot QuickSort algorithm, 
+// which is highly optimized for practical performance. The time complexity is 
+//  O(nlogn) in the average case and 𝑂(𝑛2) in the worst case (rare in practice).
+
+// For objects (e.g., String[], Integer[]), Arrays.sort() uses Timsort, a hybrid of merge sort and insertion sort, which has a time complexity of 
+// 𝑂(𝑛log𝑛) and is stable.
+
+
+
+class Solution 
+{ 
+    String sort(String s) 
+    {
+        int n= s.length();
+        int[] cnt= new int[26];
+        for(int i=0;i<n;i++){
+              cnt[s.charAt(i)-'a']++;
+        }
+        String ans="";
+        for(int i=0;i<26;i++){
+               char ch = (char)('a'+i);
+               for(int j=0;j<cnt[i];j++){
+                     ans= ans+ch;
+               }
+        }
+        return ans;
+    }
+}  
+
+
+// Method 2
+class Solution 
+{ 
+    String sort(String s) {
+        char[] ch= s.toCharArray();
+        Arrays.sort(ch);
+        return new String(ch);
+    }
+}

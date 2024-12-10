@@ -1,0 +1,11 @@
+>> If you're dealing with small or moderate-sized datasets, and 
+flexibility or ease of use is important, using ArrayList and HashSet is a great option.
+
+>> If you're concerned about performance or memory efficiency, 
+and the size of the data is known or fixed, arrays are the better 
+choice as they have minimal overhead and offer faster performance.
+
+Access time
+>O(1) for lookups (HashSet), resizing cost for ArrayList	
+>O(1) for access, fixed size
+

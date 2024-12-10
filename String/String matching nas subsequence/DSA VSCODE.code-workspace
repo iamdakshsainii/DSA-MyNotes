@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "../.."
+		},
+		{
+			"path": "../../../Web Dev VsCode"
+		}
+	],
+	"settings": {
+		"jdk.advanced.disable.nbjavac": true,
+		"java.debug.settings.onBuildFailureProceed": true,
+		"java.project.explorer.showNonJavaResources": false,
+		"liveServer.settings.multiRootWorkspaceName": "Web Dev VsCode"
+	}
+}

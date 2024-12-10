@@ -1,0 +1,20 @@
+
+//                        Split  method
+// The string split() method in Java is used to split a string into an
+//  array of substrings based on matches of the given regular expression.
+//   This method returns a string array containing the resulting substrings.
+
+// split krke array m dala comma se seperate kiya and how split use below
+// String[] arr = s.split(",");
+  // Print each element of the resulting array
+//             for (String s1 : arr) {
+//                 System.out.println(s1);
+//             }
+
+
+// yaha yaad rkhne vali baat ye h ki spli m space nhi ayege to agr jese reverse 
+// sentence krna h to space bhi dalna pdega explicitly vrna o/p
+// input- hello World
+// output- worldhello 
+// space sare hta de bich k to ye use karo na ki sidha " " in bracket vo sirf ek space ko dekhega
+//                             String[] wrds = s.split("\\s+");

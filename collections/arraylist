@@ -1,0 +1,10 @@
+1. if you need to check like vowels in string so first you need to compare with vowels so to make a list
+and there you need to use list 
+ArrayList<character> arr = new ArrayList<>(Arrays.asList(a,e,i,o,u,A,E,I,O,U)) // character mtlb hum char dalenge list m
+somthing like this
+
+2. in any collection if we use any inbuilt function then use 
+Collections.nameoffunction(collection_name) like Collections.sort(arr);
+
+3.
+

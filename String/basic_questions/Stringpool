@@ -1,0 +1,41 @@
+                        // StringPool
+package String.basic_questions;
+package String;
+
+public class Basic_Operation {
+
+    public static void main(String[] args) {
+        String name1= "Daksh Saini";
+        String name2=name1;
+        name2="SainiDaksh";
+        System.out.println(name1);
+        System.out.println(name2);
+
+        // job pool me jayega name1 and name2 and agar name1 
+        // name2 ko name1 m  daal denge to agr same h to vo ek ko hi refer krenge
+        // but agr m change krudu to phir jake name2 kisi aur ko refer krega
+
+
+        // String pool is nothing but a storage area in Java heap where string literals stores.
+        // It is also known as String Intern Pool or String Constant Pool. It is just like object allocation.
+        // By default, it is empty and privately maintained by the Java String class.
+        // Whenever we create a string the string object occupies some space in the heap memory. 
+        // Creating a number of strings may increase the cost and memory too which may reduce the performance also.
+        // The JVM performs some steps during the initialization of string literals that increase the performance and decrease the memory load. 
+        // To decrease the number of String objects created in the JVM the String class keeps a pool of strings.
+        // When we create a string literal, the JVM first check that literal in the String pool. 
+        // If the literal is already present in the pool, it returns a reference to the pooled instance. 
+        // If the literal is not present in the pool, a new String object takes place in the String pool.
+
+        //  Here the JVM checks the String Constant Pool. 
+        //  If the string does not exist, then a new string 
+        // instance is created and placed in a pool. If the string exists, 
+        // then it will not create a new object. Rather, it will return the reference to the same instance.
+
+        if( name1.equals(name2)){
+            System.out.println("TRUE");
+        }
+    } 
+}
+
+

@@ -1,0 +1,81 @@
+                  // method 1
+// class Solution {
+//     public int lengthOfLongestSubstring(String s) {
+//         int n=s.length();
+//         int maxlen=0;
+//         for(int right=0;right<n;right++){
+//              StringBuilder sb= new StringBuilder();
+//                  for(int j=right;j<n;j++){
+//                     if(sb.indexOf(String.valueOf(s.charAt(j))) == -1){
+//                      sb.append(s.charAt(j));
+//                      maxlen=Math.max(maxlen,j-right+1);
+//                  }
+//                  else{
+//                     break;
+//                  }
+//         }
+//     }
+//     return maxlen;
+//     }
+// }
+
+               // method 2         
+// class Solution {
+//     public int lengthOfLongestSubstring(String s) {
+//        int maxlen=0;
+//        int n=s.length();
+//         for(int right=0;right<n;right++){
+//              int [] marked = new int [256];
+//             for(int j=right;j<n;j++){
+//                  if(marked[s.charAt(j)] == -1){
+//                        break;
+//                  }
+//                  else{
+//                    maxlen= Math.max(maxlen,j-right+1);
+//                    marked[s.charAt(j)]=-1;
+//                  }
+//             }
+//         }
+//         return maxlen;
+//     }
+// } 
+
+    // method 3
+// class Solution {
+//     public int lengthOfLongestSubstring(String s) {
+//           int n= s.length();
+//           int left=0;
+//           int[] marked= new int[256];
+//           int maxlen=0;
+//         for(int right=0;right<n;right++){
+//             if(left>=0 && left<s.length()){
+//               while (marked[s.charAt(right)]>0){
+//                  marked[s.charAt(left)]=0;
+//                  left++;
+//               }
+//               marked[s.charAt(right)]=1;
+//               maxlen= Math.max(maxlen,right-left+1);
+//         }
+//         }
+//         return maxlen;
+//     }
+// }
+
+// method 4
+public class Solution {
+    public int lengthOfLongestSubstring(String s) {
+        int n = s.length();
+        int maxLen = 0;
+        int left = 0; 
+        HashSet<Character> set = new HashSet<>(); 
+        for (int right = 0; right < n; right++) {
+            while (set.contains(s.charAt(right))) {
+                set.remove(s.charAt(left));
+                left++;
+            }
+            set.add(s.charAt(right));
+            maxLen = Math.max(maxLen, right - left + 1);
+        }
+        return maxLen;
+    }
+}

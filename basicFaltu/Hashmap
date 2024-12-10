@@ -1,0 +1,33 @@
+ HashMap<String, Integer> map = new HashMap<>();
+        // Adding elements to the Map
+       // using standard put() method
+        map.put("vishal", 10);   
+        map.put("sachin", 30);
+        map.put("vaibhav", 20);
+    
+        agar hum question ata h to put krna to use this but key unique hogi value not unique
+        we can reverse the order of above of string and integer
+        if vo value ALREADY exist krti h to update ho jayegi or else new bn jayegi 
+       
+        //insert
+        map.put(nums[i], i);  // put(key,value) jha value index show krega think of like an array
+       
+        //Search
+        map.containsKey("vishal")   //return true or false so mostly use in if else case bracket m bhi key hi ati h 
+        
+        //index finding or value
+        map.get("vishal")     //yha get and andr vo key jiski value leni h to yha iska mtlb h ki us key pr kya value h 
+
+        // occourance ko store krna
+        if(mpp.containsKey(i)){            // jb bhi map m exist kre
+             mpp.put(i, mpp.get(i)+1);    // iska mtlb h i key ko ek bda do 
+            }
+            else {
+                 mpp.put(i,1);    // phle baar h to 1 se set krdo 
+            }
+
+        // or directly
+        for(int  i : nums ){
+              mpp.put(i, mpp.getOrDefault(i,0)+1);
+        }
+

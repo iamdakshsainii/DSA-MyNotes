@@ -1,0 +1,66 @@
+// Printing the map using keySet
+for (String key : hashMap.keySet()) {
+    System.out.println(key + " = " + hashMap.get(key));
+}
+
+Explanation:
+hashMap.keySet():
+
+The keySet() method returns a Set view of all the keys in the HashMap. A Set is a collection that contains no duplicate elements. So, when you call keySet(), you're getting a collection of all unique keys in the HashMap.
+
+In a HashMap, the keys are unique, so keySet() gives you a set of the distinct keys. For example, if your map looks like this:
+
+java
+Copy code
+HashMap<String, Integer> hashMap = new HashMap<>();
+hashMap.put("apple", 3);
+hashMap.put("banana", 5);
+hashMap.put("orange", 2);
+The keySet() would return the set:
+
+java
+Copy code
+["apple", "banana", "orange"]
+for (String key : hashMap.keySet()):
+
+This is an enhanced for loop (also called a for-each loop) that iterates over each key in the set of keys provided by keySet(). In each iteration, key will take one value from the set of keys (such as "apple", "banana", etc.).
+
+For example, during the first iteration, key would be "apple", in the second iteration it would be "banana", and so on.
+
+hashMap.get(key):
+
+The get(key) method is used to retrieve the value associated with a specific key in the HashMap. In this case, hashMap.get(key) returns the value that corresponds to the current key in the iteration.
+
+For instance, if the key is "apple", then hashMap.get("apple") will return 3 (the value associated with the "apple" key).
+
+System.out.println(key + " = " + hashMap.get(key));:
+
+This line prints the key and its associated value in the format key = value.
+It concatenates the current key with the value fetched from hashMap.get(key) and prints the result.
+
+
+
+
+2. Using entrySet() with a for loop
+The entrySet() method returns a set of key-value pairs, and you can use a for loop to iterate over them.
+
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class Main {
+    public static void main(String[] args) {
+        // Creating a HashMap
+        HashMap<String, Integer> hashMap = new HashMap<>();
+        
+        // Adding key-value pairs
+        hashMap.put("apple", 3);
+        hashMap.put("banana", 5);
+        hashMap.put("orange", 2);
+        
+        // Printing the map using entrySet and a for-each loop
+        for (Map.Entry<String, Integer> entry : hashMap.entrySet()) {
+            System.out.println(entry.getKey() + " = " + entry.getValue());
+        }
+    }
+}

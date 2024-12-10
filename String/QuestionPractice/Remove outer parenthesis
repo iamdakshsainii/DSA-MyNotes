@@ -1,0 +1,34 @@
+Remove Outermost Parentheses
+A valid parentheses string is either empty "", "(" + A + ")", or A + B, where A and B are valid 
+parentheses strings, and + represents string concatenation.
+For example, "", "()", "(())()", and "(()(()))" are all valid parentheses strings.
+Return s after removing the outermost parentheses of every primitive string in the primitive decomposition of s.
+
+link-https://leetcode.com/problems/remove-outermost-parentheses/
+
+
+
+
+
+class Solution {
+    public String removeOuterParentheses(String s) {
+        StringBuilder arr= new StringBuilder();
+               int cnt=0;
+           for(int i=0;i<s.length();i++){
+
+                if(s.charAt(i)== '('){
+                      cnt++;
+                       if(cnt>1){
+                        arr.append(s.charAt(i));
+                      }
+                }
+                if(s.charAt(i)==')'){
+                       if (cnt > 1) {
+                    arr.append(s.charAt(i));
+                }
+                cnt--;
+                      }
+                 }
+           return arr.toString();
+    }
+}

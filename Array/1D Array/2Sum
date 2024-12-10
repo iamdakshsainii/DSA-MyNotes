@@ -1,0 +1,47 @@
+revision- 3 approch specially get remember about hashmap implementation
+*******************************************************************************************************
+Approches
+1. Linear nested loop
+2. hashmap
+3. two pointer and sorting
+
+*******************************************************************************************************
+                                 HashMap Approch
+                                   
+public static int[] twoSum(int[] nums, int target) {
+HashMap to store the number and its index
+HashMap<Integer, Integer> map = new HashMap<>();
+for (int i = 0; i < nums.length; i++) {  //Traverse through the array
+       int complement = target - nums[i];
+       if (map.containsKey(complement)) { //  Check if the complement is already in the map
+            return new int[] { map.get(complement), i }; //  Return the indices of the two numbers
+        }
+        map.put(nums[i], i);   //Otherwise, add the current number and its index to the map
+        }
+       return new int[] {};
+       }
+
+*******************************************************************************************************
+
+
+                            Method 3 -> 2 pointer
+
+static boolean twoSum(int[] arr, int target){
+// Sort the array
+Arrays.sort(arr);
+int left = 0, right = arr.length - 1;
+// Iterate while left pointer is less than right
+while (left < right) {
+    int sum = arr[left] + arr[right];
+        if (sum == target)   // Check if the sum matches the target
+            return true;
+        else if (sum < target)
+            left++; // Move left pointer to the right
+        else
+            right--; // Move right pointer to the left
+       }
+        // If no pair is found
+        return false;
+}
+
+*******************************************************************************************************

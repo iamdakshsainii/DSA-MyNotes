@@ -1,0 +1,22 @@
+
+To initialize an ArrayList with a specific value in Java, you can use several
+methods.
+
+I'll cover the most common ways to initialize an ArrayList with a default
+value.
+
+1. Using Collections.nCopies(kitna size, kya place )
+Collections.nCopies() creates a list that contains a specified number of
+identical elements.
+This is useful when you want to initialize an ArrayList with a specific size
+and value.
+
+class Solution {
+public static void main(String[] args) {
+
+Initialize an ArrayList with 5 elements, all set to -1
+
+ArrayList<Integer> list = new ArrayList<>(Collections.nCopies(5, -1));
+System.out.println(list); // Output: [-1, -1, -1, -1, -1]
+}
+}

@@ -1,0 +1,75 @@
+// Given two strings s and t, determine if they are isomorphic.
+// Two strings s and t are isomorphic if the characters in s can be replaced to get t.
+// All occurrences of a character must be replaced with another character while preserving the order of characters. No two characters may map to the same character, but a character may map to itself.
+// Example 1:
+// Input: s = "egg", t = "add"
+// Output: true
+
+
+Iteration 1 (i = 0):
+s1 = s.charAt(0) = 'f'
+s2 = t.charAt(0) = 'b'
+Step 1: Check mpp1:
+
+'f' is not in mpp1. Add 'f' -> 'b' to mpp1.
+Step 2: Check mpp2:
+
+'b' is not in mpp2. Add 'b' -> 'f' to mpp2.
+State after Iteration 1:
+
+mpp1 = {'f': 'b'}
+mpp2 = {'b': 'f'}
+Iteration 2 (i = 1):
+s1 = s.charAt(1) = 'o'
+s2 = t.charAt(1) = 'a'
+Step 1: Check mpp1:
+
+'o' is not in mpp1. Add 'o' -> 'a' to mpp1.
+Step 2: Check mpp2:
+
+'a' is not in mpp2. Add 'a' -> 'o' to mpp2.
+State after Iteration 2:
+
+mpp1 = {'f': 'b', 'o': 'a'}
+mpp2 = {'b': 'f', 'a': 'o'}
+Iteration 3 (i = 2):
+s1 = s.charAt(2) = 'o'
+s2 = t.charAt(2) = 'r'
+Step 1: Check mpp1:
+
+'o' is in mpp1, but mpp1.get('o') = 'a' does not
+ match s2 = 'r'. Return false.
+
+
+
+
+
+
+
+class Solution {
+    public boolean isIsomorphic(String s, String t) {
+         HashMap<Character, Character> mpp1 = new HashMap<>();
+         HashMap<Character, Character> mpp2 = new HashMap<>();
+         for(int i=0;i<s.length();i++){
+            char s1 = s.charAt(i);
+            char s2 = t.charAt(i);
+               if(!mpp1.containsKey(s1)){
+                    mpp1.put(s1,s2);
+               }
+               else{
+                if(mpp1.get(s1) != s2){
+                    return false;
+                }
+               }
+            if(!mpp2.containsKey(s2)){
+                    mpp2.put(s2,s1);
+               }
+               else{
+                if(mpp2.get(s2) != s1){
+                    return false;
+                }
+               }
+         }
+         return true;
+    }
+}

@@ -1,0 +1,43 @@
+revision
+preffix and suffix array
+
+
+
+problem Statement
+Given an array, arr[], construct a product array, pro[] where each element pro[i] 
+is the product of all elements in arr except arr[i]. Return this resultant array, pro[].
+
+
+Approches(3 methods)
+1. using simple nested loop
+2. using prefix and suffix array and product array
+
+
+
+int n = arr.length;
+// If only one element, return a arr with 1
+if (n == 1) {
+    return new long[]{1};
+}
+long[] left = new long[n];
+long[] right = new long[n];
+ long[] prod = new long[n];
+
+                       // Construct the left array
+left[0] = 1;
+for (int i = 1; i < n; i++) {
+    left[i] = arr[i - 1] * left[i - 1];
+}
+
+                        // Construct the right array
+right[n - 1] = 1;
+for (int j = n - 2; j >= 0; j--) {
+    right[j] = arr[j + 1] * right[j + 1];
+}
+
+           // Construct the product array using left[] and right[]
+for (int i = 0; i < n; i++) {
+    prod[i] = left[i] * right[i];
+}
+
+return prod;

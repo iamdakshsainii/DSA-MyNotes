@@ -1,0 +1,72 @@
+// note important lookups
+
+1. jab bhi stringbuilder le to last m use print krana to 
+    builder_name.toString();
+    aur agar chararray ko print krana h to package se lena hota h to    
+    Arrays.toString(char_arrname);  // return array form
+    and
+    return new String(chars); 
+
+Concatenate words manually (without StringBuilder)
+    String result = "";
+    for (int i = 0; i < n; i++) {
+        result += s[i];
+        if (i < n - 1) {
+            result += " ";
+        }
+    }
+    return result;
+
+Join the words back into a single string with spaces
+      StringBuilder result = new StringBuilder();
+      for (int i = 0; i < n; i++) {
+          result.append(words[i]);
+          if (i < n - 1) {
+              result.append(" ");
+          }
+
+concetination actually append at start
+
+As you iterate through originalStr, you use the first character of originalStr and add it to the front of reversedStr:
+reversedStr = originalStr.charAt(i) + reversedStr;
+Here, you are not just appending the character to the end of reversedStr, but you are prepending it, 
+which means you are adding it at the start of reversedStr.
+
+Example:
+If we start with originalStr = "abc":
+
+Initial: reversedStr = ""
+After 1st iteration: reversedStr = "a"
+After 2nd iteration: reversedStr = "ba"
+After 3rd iteration: reversedStr = "cba"
+
+but
+reversedStr = originalStr.charAt(i) + reversedStr;
+here jo phle hoga vo phle ayega jo baadf h vo baad main
+jese agar  //reversedStr + originalStr.charAt(i) ye ho to 
+hello hi orint ho jayega
+ho hum start se hi loop chala ke reverse and vhi print kra skte h concatination k saat khrlke
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
