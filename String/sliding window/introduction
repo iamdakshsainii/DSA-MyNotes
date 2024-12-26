@@ -1,3 +1,5 @@
+sliding window me hamesa ya to array,hashset or map use kiya jata h and check first from gven and remove from that array,hashset and map only and thats how it goes
+
 The sliding window technique is often used to solve problems involving contiguous subarrays, substrings, or sequences where the goal is to optimize space or time complexity by avoiding repeated work. Determining when to use the sliding window technique can be tricky, but here are some key considerations that can help you identify when to apply it:
 
 1. Problem Involves a Subarray or Substring of Fixed or Variable Length

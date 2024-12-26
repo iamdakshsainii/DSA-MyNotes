@@ -1,65 +1,67 @@
                   // method 1
-// class Solution {
-//     public int lengthOfLongestSubstring(String s) {
-//         int n=s.length();
-//         int maxlen=0;
-//         for(int right=0;right<n;right++){
-//              StringBuilder sb= new StringBuilder();
-//                  for(int j=right;j<n;j++){
-//                     if(sb.indexOf(String.valueOf(s.charAt(j))) == -1){
-//                      sb.append(s.charAt(j));
-//                      maxlen=Math.max(maxlen,j-right+1);
-//                  }
-//                  else{
-//                     break;
-//                  }
-//         }
-//     }
-//     return maxlen;
-//     }
-// }
+class Solution {
+    public int lengthOfLongestSubstring(String s) {
+        int n=s.length();
+        int maxlen=0;
+        for(int right=0;right<n;right++){
+             StringBuilder sb= new StringBuilder();
+                 for(int j=right;j<n;j++){
+                    if(sb.indexOf(String.valueOf(s.charAt(j))) == -1){
+                     sb.append(s.charAt(j));
+                     maxlen=Math.max(maxlen,j-right+1);
+                 }
+                 else{
+                    break;
+                 }
+        }
+    }
+    return maxlen;
+    }
+}
 
-               // method 2         
-// class Solution {
-//     public int lengthOfLongestSubstring(String s) {
-//        int maxlen=0;
-//        int n=s.length();
-//         for(int right=0;right<n;right++){
-//              int [] marked = new int [256];
-//             for(int j=right;j<n;j++){
-//                  if(marked[s.charAt(j)] == -1){
-//                        break;
-//                  }
-//                  else{
-//                    maxlen= Math.max(maxlen,j-right+1);
-//                    marked[s.charAt(j)]=-1;
-//                  }
-//             }
-//         }
-//         return maxlen;
-//     }
-// } 
+               // method 2      
+sliding window me hamesa ya to array,hashset or map use kiya jata h and check first from gven and remove from that array,hashset and map only and thats how it goes
+
+class Solution {
+    public int lengthOfLongestSubstring(String s) {
+       int maxlen=0;
+       int n=s.length();
+        for(int right=0;right<n;right++){  // 2 pointer loop becuase both set to first char of input and second i.e j move so that we get our substring by j-i+1
+             int [] marked = new int [256];
+            for(int j=right;j<n;j++){
+                 if(marked[s.charAt(j)] == -1){
+                       break;
+                 }
+                 else{
+                   maxlen= Math.max(maxlen,j-right+1);
+                   marked[s.charAt(j)]=-1;
+                 }
+            }
+        }
+        return maxlen;
+    }
+} 
 
     // method 3
-// class Solution {
-//     public int lengthOfLongestSubstring(String s) {
-//           int n= s.length();
-//           int left=0;
-//           int[] marked= new int[256];
-//           int maxlen=0;
-//         for(int right=0;right<n;right++){
-//             if(left>=0 && left<s.length()){
-//               while (marked[s.charAt(right)]>0){
-//                  marked[s.charAt(left)]=0;
-//                  left++;
-//               }
-//               marked[s.charAt(right)]=1;
-//               maxlen= Math.max(maxlen,right-left+1);
-//         }
-//         }
-//         return maxlen;
-//     }
-// }
+class Solution {
+    public int lengthOfLongestSubstring(String s) {
+          int n= s.length();
+          int left=0;
+          int[] marked= new int[256];
+          int maxlen=0;
+        for(int right=0;right<n;right++){
+            if(left>=0 && left<s.length()){
+              while (marked[s.charAt(right)]>0){
+                 marked[s.charAt(left)]=0;
+                 left++;
+              }
+              marked[s.charAt(right)]=1;
+              maxlen= Math.max(maxlen,right-left+1);
+        }
+        }
+        return maxlen;
+    }
+}
 
 // method 4
 public class Solution {
