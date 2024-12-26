@@ -1,0 +1,52 @@
+The sliding window technique is often used to solve problems involving contiguous subarrays, substrings, or sequences where the goal is to optimize space or time complexity by avoiding repeated work. Determining when to use the sliding window technique can be tricky, but here are some key considerations that can help you identify when to apply it:
+
+1. Problem Involves a Subarray or Substring of Fixed or Variable Length
+Fixed length: If the problem asks for a contiguous subarray or substring of a fixed length, sliding window can help you efficiently examine each possible segment.
+Example: "Find the maximum sum of a subarray of size k."
+
+Variable length: If the problem involves finding a subarray or substring of variable length (e.g., longest substring without repeating characters, smallest subarray with sum greater than X), sliding window can be adapted to manage the dynamic size.
+Example: "Find the length of the longest substring without repeating characters."
+
+2. The Problem Involves Traversing Elements in a Continuous Sequence
+Sliding window problems typically involve a linear scan through an array or string to maintain a window of elements that satisfy a condition (e.g., sum, product, unique characters, etc.).
+
+If the problem asks to find something based on continuous elements or sequences, think about how you can "slide" through these elements while keeping track of your results.
+
+3. The Problem Requires Optimization of Time Complexity
+The sliding window technique helps you avoid recomputing things multiple times. If you find that the problem could benefit from tracking a subset of elements without recalculating everything from scratch every time, it may be a good candidate for a sliding window approach.
+Example: "Find the maximum product of any two numbers in an array."
+Instead of recalculating sums, products, or conditions for each new element, the sliding window maintains the necessary state to adjust the window efficiently.
+
+4. The Problem Involves Constraints Like "Maximum," "Minimum," or "Count"
+If the problem asks for the maximum, minimum, or count of something within a subarray, sliding window can often help keep track of these values dynamically as you move through the array.
+Example: "Find the smallest subarray with a sum greater than S."
+
+5. The Problem Requires a Dynamic Set of Elements
+If the problem involves maintaining a set of elements (e.g., unique characters, counts of characters, or other properties) while sliding through the array, sliding window can be used effectively with a hashmap or a set.
+Example: "Find all substrings containing exactly k distinct characters."
+
+6. The Problem Contains Two Pointers (or an Equivalent)
+Many sliding window problems use two pointers that define the boundaries of the window. If the problem involves adjusting a range of elements (e.g., the start or end of a subarray), think about whether a sliding window with two pointers can help you maintain an efficient solution.
+Example: "Given an array of positive integers, find the smallest contiguous subarray whose sum is greater than a given number S."
+
+7. The Problem Involves Finding a Subarray/Subsequence Meeting Certain Conditions
+If the problem asks for a subarray or subsequence that satisfies a certain condition (sum, product, specific count, etc.), the sliding window technique can often be used to maintain a dynamically changing subset of elements.
+Example: "Find the longest subarray with at most two distinct characters."
+
+
+Common Sliding Window Problem Types:
+
+Fixed-size sliding window: When the size of the window is fixed, and you need to process each window once.
+Example: Find the maximum sum of a subarray of size k.
+
+Variable-size sliding window: When the window size changes dynamically depending on some condition.
+Example: Find the length of the longest substring with no repeating characters.
+Example Problems:
+
+Sliding Window – Fixed Length:
+>Find the average of all subarrays of size k in an array.
+>Find the maximum sum of any subarray of size k.
+
+Sliding Window – Variable Length:
+>Longest substring without repeating characters.
+>Minimum size subarray with a sum greater than or equal to a given number S.

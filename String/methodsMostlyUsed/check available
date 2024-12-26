@@ -1,5 +1,0 @@
-
-// check if element already presnet in sb or not
-if(sb.indexOf(String.valueOf(s.charAt(j))) == -1)
-
-//if we need to gfind length of substring then simple do j-i+1

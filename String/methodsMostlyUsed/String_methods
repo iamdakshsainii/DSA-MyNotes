@@ -1,0 +1,162 @@
+hack=> 
+if you have string question then first go with 2 approches
+1. try to convert to array and solve and bring back to string
+2. try ascii vlue and put to array 
+3. get recall all methods below becuase mostly these formula help out
+
+
+
+1. convert string to array 
+example
+
+class reverse_word {
+    public String reverseWord(String word) {
+        char[] chars = word.toCharArray();  // Convert the word into a character array
+        int left = 0, right = chars.length - 1;
+        
+         // Reverse the array of characters
+        while (left < right) {
+            // Swap characters
+            char temp = chars[left];
+            chars[left] = chars[right];
+            chars[right] = temp;
+            left++;
+            right--;
+        } 
+
+2. Convert the character array back to a string
+        return new String(chars);
+
+
+
+3. check if element already presnet in sb or not
+valueOf()=> convert whatever to string becuase value of works for string
+and indexOf() give the result if present then that index of first occurance  else -1 value
+
+if(sb.indexOf(String.valueOf(s.charAt(j))) == -1){
+    // append or remove 
+}
+
+4. niche code m h ki stringbuilder m char bhrne h but dyan rkhna h ki 
+other symbol na aye isliye check lagaya h ki sirf LetterorDigit h to append hovo
+StringBuilder str= new StringBuilder();
+for (int i = 0; i < s.length(); i++) {
+    if (Character.isLetterOrDigit(s.charAt(i))) { // kuch bhi m collection se leta hu to Character. use
+        str.append(s.charAt(i));
+    }
+}
+
+5. Convert the string to a char array
+char[] myArray = myStr.toCharArray();
+
+6.   Print Char array
+String value = Arrays.toString(myArray);
+System.out.println(value);
+
+7. contains()
+example:
+
+valid parenthesis
+Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
+Example 1:
+Input: s = "()"
+Output: true
+// for ")[" o/p= false
+// get to know some more methods
+class Solution {
+    public boolean isValid(String s) {
+         while (s.contains("()") || s.contains("[]") || s.contains("{}")) {
+            s = s.replace("()", "");
+            s = s.replace("[]", "");
+            s = s.replace("{}", "");
+        }
+        return s.isEmpty();
+    }
+}
+
+8. Split()
+
+//                        Split  method
+// The string split() method in Java is used to split a string into an
+//  array of substrings based on matches of the given regular expression.
+//   This method returns a string array containing the resulting substrings.
+
+// split krke array m dala comma se seperate kiya and how split use below
+// String[] arr = s.split(",");
+  // Print each element of the resulting array
+//             for (String s1 : arr) {
+//                 System.out.println(s1);
+//             }
+
+
+// yaha yaad rkhne vali baat ye h ki spli m space nhi ayege to agr jese reverse 
+// sentence krna h to space bhi dalna pdega explicitly vrna o/p
+// input- hello World
+// output- worldhello 
+// space sare hta de bich k to ye use karo na ki sidha " " in bracket vo sirf ek space ko dekhega
+//                             String[] wrds = s.split("\\s+");
+
+9. Ascii value
+// convert string to index
+if want to add element based on ascii to string
+then  cnt[s.charAt(i)-'a']++ will set value as based on how many time it comes
+this set array from value 0 but if we take 128 size aray thren dont need
+to convert to 0 by sub. char so we have two ways baiscally
+
+// get back to string
+for this we use char str = (char)(i+'a');
+i is of loop at we tranverse to convert each value
+
+
+10. substring(int start) / substring(int start, int end)
+Description: Returns a new string that is a substring of the original string.
+Usage: Extracting a part of a string.
+Example:
+String s = "hello";
+String sub = s.substring(1); // sub = "ello"
+String sub2 = s.substring(1, 3); // sub2 = "el"
+
+
+11. contains(CharSequence sequence)
+Description: Returns true if the string contains the specified sequence of characters, otherwise false.
+Usage: Checking if a substring exists in the string.
+Example:
+String s = "hello";
+boolean contains = s.contains("ll"); // contains = true
+
+12. equals(String anotherString)
+String s1 = "hello";
+String s2 = "HELLO";
+boolean isEqual = s1.equals(s2); // isEqual = false
+boolean isEqualIgnoreCase = s1.equalsIgnoreCase(s2); // isEqualIgnoreCase = true
+
+13. replace(char oldChar, char newChar) / replace(CharSequence target, CharSequence replacement)
+String s = "hello";
+String replaced = s.replace('l', 'p'); // replaced = "heppo"
+
+14. split(String regex)
+Description: Splits the string into an array of substrings based on a given regular expression.
+Usage: Splitting a string into parts (e.g., splitting words by space).
+Example:
+String s = "apple banana cherry";
+String[] words = s.split(" "); // words = ["apple", "banana", "cherry"]
+
+15. join(CharSequence delimiter, CharSequence... elements) // array to string conversion
+Description: Joins elements of an array or a list of strings into a single string with the specified delimiter.
+String[] words = {"apple", "banana", "cherry"};
+String joined = String.join(", ", words); // joined = "apple, banana, cherry"
+
+16. valueOf(Object obj)
+Description: Converts an object to its string representation.
+int num = 123;
+String s = String.valueOf(num); // s = "123"
+
+17. isEmpty()
+String s = "";
+boolean isEmpty = s.isEmpty(); // isEmpty = true
+
+18. . indexOf(String str) / indexOf(char ch)  // works for string so need valueOf to convert to string if not
+Description: Returns the index of the first occurrence of the specified character or substring. Returns -1 if not found.
+String s = "hello";
+int index = s.indexOf('e'); // index = 1
+int index2 = s.indexOf("lo"); // index2 = 3
