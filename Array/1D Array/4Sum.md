@@ -14,10 +14,69 @@ a + b + c + d = target
 3. **Sort and Store Unique Quadruplets**: Add quadruplets to a `Set` to avoid duplicates.
 
 ##  Complexity Analysis
-Complexity Analysis
-Time Complexity:**O(N3xlog(M))**, for using 3 nested loops and inside the loops there are some operations on the set data structure which take log(M) time complexity, where N is size of the array, M is number of elements in the set.
+# **Complexity Analysis of Four Sum Algorithm**
 
-Space Complexity: **O(2 x no. of the quadruplets)+O(N)** for using a set data structure and a list to store the quads. This results in the first term. And the second space is taken by the set data structure we are using to store the array elements. At most, the set can contain approximately all the array elements and so the space complexity is O(N).
+## **Time Complexity Analysis**
+### **1. Three Nested Loops: `O(N³)`**
+- The **first loop** runs `N` times.
+- The **second loop** runs `N-1` times.
+- The **third loop** runs `N-2` times.
+- **Total iterations**:
+  \[
+  O(N) \times O(N) \times O(N) = O(N^3)
+  \]
+
+### **2. Operations on Set: `O(log M)`**
+- Inside the innermost loop, we use a `Set<Long>` (hashset) to store elements and check if a required element (`fourth` value) exists.
+- The lookup and insert operations in a `HashSet` are **O(1) on average**, but in some cases (if using **TreeSet** or a balanced BST-based Set), it can be **O(log M)**.
+- Since `M` is the number of elements stored in the set, the worst-case time complexity per iteration is **O(log M)**.
+
+### **Final Time Complexity**
+\[
+O(N^3 \times \log M)
+\]
+where:
+- `N` is the size of the array.
+- `M` is the number of elements in the set (can be at most `N` in the worst case).
+
+---
+
+## **Space Complexity Analysis**
+### **1. Space for Storing Unique Quadruplets: `O(2 × no. of quadruplets)`**
+- We use a **Set<List<Integer>>** to store unique quadruplets.
+- We also use a **List<List<Integer>>** to return the final result.
+- In the worst case, if we have `Q` unique quadruplets, the space taken will be:
+  \[
+  O(2Q) = O(Q)
+  \]
+
+### **2. Space for Storing Array Elements: `O(N)`**
+- The `HashSet<Long>` used inside the loops stores **at most `N` elements** (one for each number in the array).
+- The worst case occurs when all elements are distinct.
+- Space taken:
+  \[
+  O(N)
+  \]
+
+### **Final Space Complexity**
+\[
+O(Q) + O(N)
+\]
+where:
+- `Q` is the number of unique quadruplets.
+- `N` is the number of elements in the array.
+
+---
+
+## **Summary**
+| Complexity | Breakdown | Final Complexity |
+|------------|-----------|-----------------|
+| **Time Complexity** | 3 nested loops (`O(N³)`) + set operations (`O(log M)`) | **O(N³ × log M)** |
+| **Space Complexity** | Storing quadruplets (`O(Q)`) + storing array elements (`O(N)`) | **O(Q + N)** |
+
+This breakdown clarifies the computational requirements for solving the **Four Sum** problem efficiently. 🚀
+
+
 
 ## Code Implementation (Java)
 ```java
