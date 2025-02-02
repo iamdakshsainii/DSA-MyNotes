@@ -15,9 +15,9 @@ a + b + c + d = target
 
 ##  Complexity Analysis
 Complexity Analysis
-Time Complexity: O(N3xlog(M)), for using 3 nested loops and inside the loops there are some operations on the set data structure which take log(M) time complexity, where N is size of the array, M is number of elements in the set.
+Time Complexity:**O(N3xlog(M))**, for using 3 nested loops and inside the loops there are some operations on the set data structure which take log(M) time complexity, where N is size of the array, M is number of elements in the set.
 
-Space Complexity: O(2 x no. of the quadruplets)+O(N) for using a set data structure and a list to store the quads. This results in the first term. And the second space is taken by the set data structure we are using to store the array elements. At most, the set can contain approximately all the array elements and so the space complexity is O(N).
+Space Complexity: **O(2 x no. of the quadruplets)+O(N)** for using a set data structure and a list to store the quads. This results in the first term. And the second space is taken by the set data structure we are using to store the array elements. At most, the set can contain approximately all the array elements and so the space complexity is O(N).
 
 ## Code Implementation (Java)
 ```java
