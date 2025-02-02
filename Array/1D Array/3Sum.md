@@ -18,7 +18,7 @@ class Solution {
                 for (int k = j + 1; k < n; k++) {
                     if (nums[i] + nums[j] + nums[k] == 0) {
                         // Found a triplet that sums up to target
-                        List<Integer> temp = new ArrayList<>();
+                        List<Integer> temp = new ArrayList<>();    // make sure you are creating a list so alwys declare here as it need to empty every time
                         temp.add(nums[i]);
                         temp.add(nums[j]);
                         temp.add(nums[k]);
@@ -41,7 +41,7 @@ class Solution {
 }
 ```
 
-# Three Sum Problem: Optimized HashSet Approach
+# Three Sum Problem: Better HashSet Approach
 
 ## Code:
 ```java
@@ -140,7 +140,7 @@ class Solution {
                     // Skip duplicates
                     j++;
                     k--;
-                    while (j < k && nums[j] == nums[j - 1]) j++;
+                    while (j < k && nums[j] == nums[j - 1]) j++;  // weak in complexity - mistake - dont include this as n3 as it is not lookup whole array so complexity would be constant
                     while (j < k && nums[k] == nums[k + 1]) k--;
                 }
             }
@@ -150,3 +150,9 @@ class Solution {
     }
 }
 ```
+### method to add as list
+```
+ List<Integer> temp = Arrays.asList(nums[i], nums[j], nums[k], nums[l]);
+```
+List: Can store duplicates and maintains order, with space complexity O(n).
+Set: Stores only unique elements, with space complexity O(n), and typically provides faster lookups and insertions than a list (due to the underlying hash table).
