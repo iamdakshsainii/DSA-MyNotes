@@ -13,11 +13,11 @@ a + b + c + d = target
 2. **Use a HashSet**: Store previously seen elements to find the fourth element efficiently.
 3. **Sort and Store Unique Quadruplets**: Add quadruplets to a `Set` to avoid duplicates.
 
-## Space Complexity Analysis
-- **Outer `Set<List<Integer>>`**: Ensures unique quadruplets → `O(no. of unique quadruplets)`.
-- **Inner `Set<Long>`**: Tracks seen elements in the third loop → `O(n)`.
-- **Final List Storage**: Storing quadruplets → `O(no. of unique quadruplets)`.
-- **Overall Space Complexity**: `O(n + unique quadruplets)`.
+##  Complexity Analysis
+Complexity Analysis
+Time Complexity: O(N3xlog(M)), for using 3 nested loops and inside the loops there are some operations on the set data structure which take log(M) time complexity, where N is size of the array, M is number of elements in the set.
+
+Space Complexity: O(2 x no. of the quadruplets)+O(N) for using a set data structure and a list to store the quads. This results in the first term. And the second space is taken by the set data structure we are using to store the array elements. At most, the set can contain approximately all the array elements and so the space complexity is O(N).
 
 ## Code Implementation (Java)
 ```java
