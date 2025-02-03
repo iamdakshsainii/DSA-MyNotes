@@ -119,9 +119,9 @@ class Solution {
         return ans;
     }
 }
+```
 
-
-###Optimal
+### Optimal
 ```java
 class Solution {
     public List<List<Integer>> fourSum(int[] nums, int target) {
@@ -140,6 +140,7 @@ class Solution {
             for (int j = i + 1; j < n; j++) {
                 // Skip duplicates for j
                 if (j > i + 1 && nums[j] == nums[j - 1])
+                
                     continue;
 
                 // Two pointers approach
