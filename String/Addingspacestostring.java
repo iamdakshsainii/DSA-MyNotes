@@ -1,6 +1,7 @@
+package String;
 // package String.QuestionPractice;
 
-// Learning 
+// Learning
 // 1. when you apply looping then yaad rakho pen paper pr hr baar looping
 // par kya update ho raha h vo likho like
 // yaha jb tumne phle baar solve kiya tumne miss kiya ki like "codingislife" me phle iteration m "coding islife" hoga so index
@@ -12,18 +13,18 @@
 
 
 
-// You are given a 0-indexed string s and a 
-// 0-indexed integer array spaces that describes 
-// the indices in the original string where spaces 
-// will be added. Each space should be inserted before 
+// You are given a 0-indexed string s and a
+// 0-indexed integer array spaces that describes
+// the indices in the original string where spaces
+// will be added. Each space should be inserted before
 // the character at the given index.
- 
+
 
 // Example 1:
 
 // Input: s = "LeetcodeHelpsMeLearn", spaces = [8,13,15]
 // Output: "Leetcode Helps Me Learn"
-// Explanation: 
+// Explanation:
 // The indices 8, 13, and 15 correspond to the underlined characters in "LeetcodeHelpsMeLearn".
 // We then place spaces before those characters.
 
@@ -50,7 +51,7 @@
 
 
 // method 2
-//learning part 
+//learning part
 
 class Solutions {
     public String addSpaces(String s, int[] spaces) {

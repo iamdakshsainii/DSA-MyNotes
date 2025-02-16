@@ -5,30 +5,29 @@ jaha duplicate or repaet aye xor and sum vala case jarur socho*
 
 link-  https://www.geeksforgeeks.org/problems/find-missing-and-repeating2512/
 
-Problem Statement: 
-You are given a read-only array of N integers with values also in the range [1, N] 
-both inclusive. Each integer appears exactly once except A which appears twice and B which is missing. 
+Problem Statement:
+You are given a read-only array of N integers with values also in the range [1, N]
+both inclusive. Each integer appears exactly once except A which appears twice and B which is missing.
 The task is to find the repeating and missing numbers A and B where A repeats twice and B is missing.
 
-*********************************************************************************************************************
 
-                            Approches (4 Approches) 
- 
+                            // Approches (4 Approches)
+
 1. use comparison with natural number 1 to n with the element in array
-2. Hashing -> hash m value daal do then check agr hash table m 2 baar element h ya ek baar bhi nhi 
+2. Hashing -> hash m value daal do then check agr hash table m 2 baar element h ya ek baar bhi nhi
 3. Xor approch
 4. Sum vala approch
 
-*********************************************************************************************************************
+
 
 // Method 1
 just use loop for compare to 1 to n number and another loop to traverse to array
 thenif cnt is 2 it is repeating and if 0 then missing
-
+```
 import java.util.ArrayList;
 public class RepeatingAndMissing {
     public static ArrayList<Integer> findMissingRepeatingNumbers(int[] a) {
-        int n = a.length; 
+        int n = a.length;
         int repeating = -1, missing = -1;
         for (int i = 1; i <= n; i++) {
             int cnt = 0;
@@ -44,7 +43,7 @@ public class RepeatingAndMissing {
         ArrayList<Integer> result = new ArrayList<>();
         result.add(repeating);
         result.add(missing);
-        return result; 
+        return result;
     }
     public static void main(String[] args) {
         int[] a = {3, 1, 2, 5, 4, 6, 7, 5};
@@ -53,9 +52,9 @@ public class RepeatingAndMissing {
                            + ans.get(0) + ", " + ans.get(1) + "}");
     }
 }
+```
 
-*********************************************************************************************************************
-
+```
 // method 2
 //Function to find two elements in array
  ArrayList<Integer> findTwoElement(int arr[]) {
@@ -65,24 +64,20 @@ int repeating = -1;
 int missing = -1;
 for (int i = 0; i < n; i++) {
 if (set.contains(arr[i])) {
-    repeating = arr[i];  
+    repeating = arr[i];
 } else {
-    set.add(arr[i]); 
+    set.add(arr[i]);
         }
     }
 for (int i = 1; i <= n; i++) {
     if (!set.contains(i)) {
-      missing = i;  
+      missing = i;
       break;
 }
 }
 ArrayList<Integer> result = new ArrayList<>();
 result.add(repeating);
 result.add(missing);
-return result; 
+return result;
 }
-
-
-
-
-
+```
