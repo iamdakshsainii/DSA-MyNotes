@@ -1,0 +1,39 @@
+Important thing to notice
+1. wherever you get any cycle in linkedlist or array go with tortiose technique (fast and slow pointer)
+2. alwys take care of handling if no cycle.
+**this single line take me an hour to understand why i am getting tle so much**
+(if (temp == null) return 0; // must lookup for no cycle alwys )
+
+// code
+class Solution {
+  public ListNode findStartingPoint(ListNode head) {
+    ListNode forward = head;
+    ListNode prev = head;
+    while (forward != null && forward.next != null) {
+      prev = prev.next;
+      forward = forward.next.next;
+      if (forward == prev) {
+        prev = head;
+        while (prev != forward) {
+          forward = forward.next;
+          prev = prev.next;
+        }
+        return prev;
+      }
+    }
+    return null; // must need to give this else it give tle
+  }
+
+  public int findLengthOfLoop(ListNode head) {
+
+    int cnt = 1;
+    ListNode temp = findStartingPoint(head);
+    ListNode slow = temp;
+        if (temp == null) return 0; // must lookup for no cycle alwys
+    while (temp.next != slow) {
+      cnt++;
+      temp = temp.next;
+    }
+    return cnt;
+  }
+}
