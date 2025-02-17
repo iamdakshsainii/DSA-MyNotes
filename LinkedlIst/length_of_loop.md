@@ -5,6 +5,7 @@ Important thing to notice
 (if (temp == null) return 0; // must lookup for no cycle alwys )
 
 // code
+```
 class Solution {
   public ListNode findStartingPoint(ListNode head) {
     ListNode forward = head;
@@ -37,3 +38,4 @@ class Solution {
     return cnt;
   }
 }
+```
