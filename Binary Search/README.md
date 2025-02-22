@@ -1,7 +1,7 @@
 
 ---
 
-### 📜 **Binary Search (`Binary-Search/README.md`)**
+### 📜 **Binary Search**
 ```markdown
 # 🔍 Binary Search – Java Solutions
 
