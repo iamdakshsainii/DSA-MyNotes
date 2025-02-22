@@ -1,35 +1,27 @@
 # 🚀 Data Structures & Algorithms (DSA) – Java Solutions
 
-Welcome to the **DSA Practice Repository**! This repository contains optimized solutions for **Bit Manipulation, Arrays, Linked Lists, and Strings**, helping developers ace **coding interviews** and **competitive programming**.
+This repository contains **optimized Java solutions** for **Arrays, Binary Search, Strings, and other DSA topics**. It is designed for **coding interviews**, **competitive programming**, and **technical assessments**.
 
 ## 📂 Folder Structure
 
-### 🔹 [Bit Manipulation](./Bit-Manipulation/README.md)
-- Efficient **bitwise operations** for **optimization**.
-- Covers **n & (n-1), masking, toggling bits**, etc.
-- ✅ **Best for Interview Preparation & Competitive Coding.**
-
 ### 🔹 [Arrays](./Arrays/README.md)
-- Covers **sorting, searching, prefix sums, Kadane's Algorithm**.
-- **Dynamic Programming** solutions using **arrays**.
-- ✅ **Optimized solutions with explanations.**
+- Covers **sorting, searching, prefix sums, sliding window, Kadane’s Algorithm**.
+- ✅ **Essential for problem-solving in interviews.**
 
-### 🔹 [Linked List](./Linked-List/README.md)
-- Covers **singly, doubly, circular linked lists**.
-- **Floyd’s Cycle Detection Algorithm, Fast-Slow Pointer, Merge K-Sorted Lists.**
-- ✅ **Commonly asked in FAANG interviews.**
+### 🔹 [Binary Search](./Binary-Search/README.md)
+- Covers **basic binary search, search in rotated sorted array, first & last position of an element, etc.**
+- ✅ **Efficient O(log n) solutions.**
 
 ### 🔹 [Strings](./Strings/README.md)
 - Covers **pattern matching, palindrome checking, hashing techniques**.
-- **Rabin-Karp, KMP, Trie-based solutions.**
-- ✅ **Efficient for interview coding rounds.**
+- ✅ **Optimized solutions for common string-based problems.**
 
 ---
 
 ## 🌟 Why Star This Repo?
-- 🔥 **Optimized DSA solutions** for **interviews & coding competitions**.
-- 📚 **Well-structured problems with explanations**.
-- 🚀 **Regularly updated** with new problems.
+- 🔥 **Optimized DSA solutions** for **interviews & competitive coding**.
+- 📚 **Clear explanations & structured content**.
+- 🚀 **Regular updates with new problems & solutions.**
 
 ### 🤝 Want to Contribute?
 - Fork the repository 🍴.
