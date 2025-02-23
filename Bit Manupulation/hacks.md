@@ -64,3 +64,7 @@ class Solution {
 ```cpp
 2^d = 1<<d and d*2^(cnt+1) = d << cnt+1
 ```
+
+### 4. Multiple
+to check multiple
+count % 3 -> multiple of 3
