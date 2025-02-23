@@ -1,7 +1,7 @@
-## important concepts need to focus while solving bit manupulation question
+## Important concepts need to focus while solving bit manupulation question
 
 
-## 1. if question given you need to maintain 32 bit then
+## 1. If question given you need to maintain 32 bit then
 
 ## **Handling 32-bit Integer Constraints in Division**
 
