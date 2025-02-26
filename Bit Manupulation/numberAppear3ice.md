@@ -22,20 +22,16 @@ Given an integer array where **every element appears three times** except for **
 
 **Method 1**
 ```java
-import java.util.Arrays;
-
 class Solution {
     public int singleNumber(int[] nums) {
-        int n = nums.length;
-        Arrays.sort(nums); // Step 1: Sort the array
-
-        for (int i = 1; i < n - 1; i++) { // Step 2: Traverse the array
-            if (nums[i] != nums[i - 1] && nums[i] != nums[i + 1]) { // Step 3: Find unique element
+        int n= nums.length;
+        Arrays.sort(nums);
+        for(int i=0;i<n;i+=3){
+            if(i+1 <n && nums[i] != nums[i+1]){  // check how to handle runtime error for out of bound index
                 return nums[i];
             }
         }
-
-        return nums[n - 1]; // Step 4: If unique element is the last element
+        return nums[n-1];
     }
 }
 ```
@@ -87,7 +83,7 @@ class Solution {
                 }
             }
 
-            if (cnt % 3 == 1) { // Step 3: if multiple of 3 then ok else if it not mean it is 1 of unique bit so set to ans 
+            if (cnt % 3 == 1) { // Step 3: if multiple of 3 then ok else if it not mean it is 1 of unique bit so set to ans
                 ans |= (1 << i);
             }
         }
