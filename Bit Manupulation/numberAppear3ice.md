@@ -8,6 +8,7 @@
 Given an integer array where **every element appears three times** except for **one unique element**, find and return the single number.
 ---
 
+
 ## **Method 1:Comparing Approach**
 
 ### **🔍 Intuition**
@@ -18,6 +19,8 @@ Given an integer array where **every element appears three times** except for **
 
 ### **📝 Code Implementation**
 
+
+**Method 1**
 ```java
 import java.util.Arrays;
 
@@ -49,6 +52,7 @@ class Solution {
 
 ---
 
+
 ## **Method 2: Bitwise Counting Approach**
 
 ### **🔍 Intuition**
@@ -74,16 +78,16 @@ class Solution {
         int n = nums.length;
         int ans = 0;
 
-        for (int i = 0; i < 32; i++) { // Step 2: Iterate over each bit position
+        for (int i = 0; i < 32; i++) { // Step 1: go left to right to each bit (like 2 1 0) till 32 bit
             int cnt = 0;
 
-            for (int j = 0; j < n; j++) { // Step 3: Count how many numbers have 1 at bit `i`
+            for (int j = 0; j < n; j++) { // Step 2: now check each number ith bit and aim is to check if it is multiple of 3 or not
                 if ((nums[j] & (1 << i)) != 0) {
                     cnt++;
                 }
             }
 
-            if (cnt % 3 == 1) { // Step 4: Unique number contributes to this bit
+            if (cnt % 3 == 1) { // Step 3: if multiple of 3 then ok else if it not mean it is 1 of unique bit so set to ans 
                 ans |= (1 << i);
             }
         }
@@ -101,3 +105,7 @@ class Solution {
 ### **🛠️ Space Complexity**
 
 - **O(1)**, as only a few integer variables are used.
+
+
+**Method 3** ->
+HashMap by count frequencies
