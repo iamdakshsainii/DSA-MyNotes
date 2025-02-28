@@ -1,4 +1,3 @@
-```java
 # Java Template for Array, LinkedList, String, 2D Array, and Matrix Input on Platforms like HackerRank
 
 ## Overview
@@ -217,4 +216,3 @@ HELLO WORLD
 ```
 
 Modify the functions based on the problem statement and requirements! 🚀
-
