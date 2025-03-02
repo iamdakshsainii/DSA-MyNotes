@@ -95,7 +95,7 @@ class Solution {
     }
 }
 
-
+```
 
 ## GFG Solution
 
