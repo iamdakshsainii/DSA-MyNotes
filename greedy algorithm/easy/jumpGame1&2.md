@@ -94,3 +94,49 @@ class Solution {
         return cnt;
     }
 }
+
+
+
+## GFG Solution
+
+```java
+class Solution {
+    public ArrayList<Integer> JobSequencing(int[] id, int[] deadline, int[] profit) {
+        int n = id.length;
+        int[][] jobs = new int[n][3];
+
+        for (int i = 0; i < n; i++) {
+            jobs[i][0] = id[i];
+            jobs[i][1] = deadline[i];
+            jobs[i][2] = profit[i];
+        }
+
+        Arrays.sort(jobs, (a, b) -> b[2] - a[2]);
+
+        int maxDeadline = 0;
+        for (int i = 0; i < n; i++) {
+            maxDeadline = Math.max(maxDeadline, jobs[i][1]);
+        }
+
+        int[] res = new int[maxDeadline + 1];
+        Arrays.fill(res, -1);
+
+        int count = 0, totalProfit = 0;
+        for (int i = 0; i < n; i++) {
+            for (int j = jobs[i][1]-1; j >= 0; j--) {
+                if (res[j] == -1) {
+                    res[j] = jobs[i][0];
+                    count++;
+                    totalProfit += jobs[i][2];
+                    break;
+                }
+            }
+        }
+
+        ArrayList<Integer> ans = new ArrayList<>();
+        ans.add(count);
+        ans.add(totalProfit);
+        return ans;
+    }
+}
+```
