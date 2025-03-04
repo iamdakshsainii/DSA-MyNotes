@@ -5,6 +5,9 @@ The goal of this problem is to schedule the **maximum number of non-overlapping 
 **Greedy** -> we know ki maximum meeting chahiye to end time jiska kam h mtlb jo phle khtm ho jayegi use phle krde it clicks the sorting and if both array sorted it distort the order for start and end time iska mtlb pair bnake kaam karo this give idea for list and array pairing
 ---
 
+It is actually a **non-overlapping** case also as if start >= end then it works normally mean non overlapping and if we need overlapping just subtract count from total pairs
+
+
 ## **Step-by-Step Intuition: How to Approach the Problem**
 ### 1. **Understanding the Problem Statement:**
 - Each meeting has a start and end time.

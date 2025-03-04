@@ -21,7 +21,7 @@ class Solution {
     // Comparator function to sort meetings based on end times
     static class MeetingComparator implements Comparator<int[]> {
         public int compare(int[] a, int[] b) {
-            return Integer.compare(a[1], b[1]);
+            return Integer.compare(a[1], b[1]);  // reverse in descending case
         }
     }
 
@@ -135,4 +135,3 @@ public class JobSequencing {
 ✅ **List<int[]>** is useful for **storing pairs** and **sorting efficiently**.
 ✅ **Custom Class + Comparator** is best for **multi-attribute sorting** (like profit-based job sequencing).
 ✅ **Use Comparator when sorting needs a custom rule (e.g., descending profit, ascending end time, etc.)**.
-
