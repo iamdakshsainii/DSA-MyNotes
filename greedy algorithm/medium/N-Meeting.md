@@ -1,6 +1,8 @@
 ## **Intuition Behind the Problem: Maximum Number of Meetings**
 The goal of this problem is to schedule the **maximum number of non-overlapping meetings** in a single conference room. Given the **start** and **end** times of `n` meetings, we need to determine the highest number of meetings that can be accommodated without any conflicts.
 
+
+**Greedy** -> we know ki maximum meeting chahiye to end time jiska kam h mtlb jo phle khtm ho jayegi use phle krde it clicks the sorting and if both array sorted it distort the order for start and end time iska mtlb pair bnake kaam karo this give idea for list and array pairing
 ---
 
 ## **Step-by-Step Intuition: How to Approach the Problem**
