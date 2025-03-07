@@ -1,90 +1,117 @@
 # Insert Interval Problem
 
 ## Problem Statement
+Given a set of non-overlapping intervals sorted by their start time, insert a new interval into the list (merge if necessary).
 
-You are given an array of non-overlapping intervals `intervals`, where `intervals[i] = [start_i, end_i]`, representing the start and end of an interval. You are also given an interval `newInterval = [start, end]` that needs to be inserted into `intervals` while ensuring that the final list of intervals remains non-overlapping and sorted.
-
-Return the updated list of intervals after merging, if necessary.
-
-### Constraints:
-
-- `0 <= intervals.length <= 10^4`
-- `intervals[i].length == 2`
-- `newInterval.length == 2`
-- `intervals` are sorted based on the start value.
-- `newInterval` may overlap with one or more intervals.
-
-## Example
-
-### **Input:**
-
-```java
-intervals = {{1,3}, {6,9}};
-newInterval = {2,5};
+### **Example**
+```plaintext
+Input: intervals = [[1,2],[3,5],[6,7],[8,10],[12,16]], newInterval = [4,8]
+Output: [[1,2],[3,10],[12,16]]
 ```
 
-### **Output:**
+---
 
-```java
-{{1,5}, {6,9}}
+## **Solution Steps**
+
+### **Step 1: Add Non-Overlapping Intervals**
+**Condition:** Add intervals that end before `newInterval[0] (4)`.
+
+#### **Check `[1,2]`**
+- `2 < 4` ✅ **(No overlap) → Add `[1,2]` to result.**
+- **Array after adding:** `[[1,2]]`
+- **Move to next interval `[3,5]`.**
+
+#### **Check `[3,5]`**
+- `5 >= 4` ❌ **(Overlaps with `[4,8]`) → Stop adding and move to merging.**
+- **Remaining Intervals to check:** `[[3,5], [6,7], [8,10], [12,16]]`
+
+---
+
+### **Step 2: Merge Overlapping Intervals**
+**Condition:** If `newInterval[1] >= intervals[i][0]`, merge them.
+
+#### **Check `[3,5]`**
+- `8 >= 3` ✅ **(Overlap) → Merge `[3,5]` into `[4,8]`.**
+- **New Merged Interval:** `[min(4,3), max(8,5)] = [3,8]`
+- **Move to next interval `[6,7]`.**
+
+#### **Check `[6,7]`**
+- `8 >= 6` ✅ **(Overlap) → Merge `[6,7]` into `[3,8]`.**
+- **New Merged Interval:** `[min(3,6), max(8,7)] = [3,8]`
+- **Move to next interval `[8,10]`.**
+
+#### **Check `[8,10]`**
+- `8 >= 8` ✅ **(Overlap) → Merge `[8,10]` into `[3,8]`.**
+- **New Merged Interval:** `[min(3,8), max(8,10)] = [3,10]`
+- **Move to next interval `[12,16]`.**
+
+#### **Check `[12,16]`**
+- `8 >= 12` ❌ **(No overlap) → Stop merging.**
+- **Final merged interval:** `[3,10]`
+
+✅ **Array after merging:** `[[1,2], [3,10]]`
+
+---
+
+### **Step 3: Add Remaining Non-Overlapping Intervals**
+Now, add intervals **after merging**.
+
+#### **Add `[12,16]`**
+- **No overlap → Add it directly.**
+- **Final array:** `[[1,2], [3,10], [12,16]]`
+
+---
+
+## **Final Output**
+```plaintext
+[[1,2], [3,10], [12,16]]
 ```
 
-## Solution
+---
 
-### **Approach**
-
-1. **Initialize a list** to store the merged intervals.
-2. **Iterate through the intervals** in three phases:
-   - Add all intervals that come **before** the new interval.
-   - Merge all **overlapping intervals**.
-   - Add all intervals that come **after** the merged interval.
-3. **Convert the list** back to an array and return the result.
-
-### **Java Implementation**
-
+## **Java Code Implementation**
 ```java
+import java.util.*;
+
 class Solution {
     public int[][] insert(int[][] intervals, int[] newInterval) {
-        List<int[]> li = new ArrayList<>();
-        int n = intervals.length;
-        int i = 0;
+        List<int[]> result = new ArrayList<>();
+        int i = 0, n = intervals.length;
 
-        // Add non-overlapping intervals before newInterval
+        // Step 1: Add all non-overlapping intervals before newInterval
         while (i < n && intervals[i][1] < newInterval[0]) {
-            li.add(intervals[i]);
+            result.add(intervals[i]);
             i++;
         }
 
-        // Merge overlapping intervals
+        // Step 2: Merge overlapping intervals with newInterval
         while (i < n && intervals[i][0] <= newInterval[1]) {
             newInterval[0] = Math.min(newInterval[0], intervals[i][0]);
             newInterval[1] = Math.max(newInterval[1], intervals[i][1]);
             i++;
         }
-        li.add(newInterval);
+        result.add(newInterval);
 
-        // Add remaining intervals after newInterval
+        // Step 3: Add remaining non-overlapping intervals
         while (i < n) {
-            li.add(intervals[i]);
+            result.add(intervals[i]);
             i++;
         }
 
-        return li.toArray(new int[li.size()][]);
+        return result.toArray(new int[result.size()][]);
+    }
+
+    public static void main(String[] args) {
+        Solution sol = new Solution();
+        int[][] intervals = {{1,2},{3,5},{6,7},{8,10},{12,16}};
+        int[] newInterval = {4,8};
+        int[][] result = sol.insert(intervals, newInterval);
+
+        System.out.println("Output:");
+        for (int[] arr : result) {
+            System.out.println(Arrays.toString(arr));
+        }
     }
 }
 ```
-
-### **Complexity Analysis**
-
-- **Time Complexity:** `O(N)`, where `N` is the number of intervals.
-- **Space Complexity:** `O(N)`, as we store the intervals in a list.
-
-### **Edge Cases Considered**
-
-| Case                       | Input                                             | Expected Output         |
-| -------------------------- | ------------------------------------------------- | ----------------------- |
-| New interval before all    | `intervals = {{3,6}}, newInterval = {1,2}`        | `{{1,2}, {3,6}}`        |
-| New interval after all     | `intervals = {{1,3}}, newInterval = {4,5}`        | `{{1,3}, {4,5}}`        |
-| New interval overlaps all  | `intervals = {{1,2}, {3,5}}, newInterval = {0,6}` | `{{0,6}}`               |
-| New interval in the middle | `intervals = {{1,2}, {5,7}}, newInterval = {3,4}` | `{{1,2}, {3,4}, {5,7}}` |
 
