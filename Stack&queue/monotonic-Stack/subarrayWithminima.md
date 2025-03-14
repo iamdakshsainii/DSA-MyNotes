@@ -1,9 +1,9 @@
-# Sum of Subarray Minimums
+**💡 Problem: Sum of Subarray Minimums**
 
-## Problem Statement
+### **📝 Problem Statement**
 Given an array `arr` of integers, find the sum of the **minimum value** of all its subarrays. The answer should be returned **modulo** `(1e9 + 7)`.
 
-### Example:
+### **🔹 Example:**
 ```java
 Input: arr = [3, 1, 2, 4]
 Output: 17
@@ -24,13 +24,13 @@ Output: 17
 
 ---
 
-## Method 1: Brute Force (O(N²))
-### Intuition:
+## **🔹 Method 1: Brute Force (O(N²))**
+### **🧠 Intuition:**
 - Iterate through all subarrays.
 - Find the **minimum element** for each subarray.
 - Add it to the sum.
 
-### Code:
+### **🔹 Code:**
 ```java
 class Solution {
   public int sumSubarrayMins(int[] arr) {
@@ -50,19 +50,19 @@ class Solution {
 }
 ```
 
-### Key Points:
+### **✅ Key Points:**
 - **Time Complexity:** `O(N²)`, as it checks all subarrays.
 - **Space Complexity:** `O(1)`, as it uses no extra space.
 
 ---
 
-## Method 2: Optimized Using Monotonic Stack (O(N))
-### Intuition:
+## **🔹 Method 2: Optimized Using Monotonic Stack (O(N))**
+### **🧠 Intuition:**
 - Instead of checking all subarrays, use a **monotonic increasing stack** to find the nearest **previous smaller** and **next smaller** element.
 - This helps determine how many subarrays an element contributes as the minimum value.
 - **Contribution of an element = (left range) * (right range) * arr[i]**.
 
-### Code:
+### **🔹 Code:**
 ```java
 class Solution {
   public int sumSubarrayMins(int[] arr) {
@@ -114,62 +114,44 @@ class Solution {
 }
 ```
 
-### Key Points:
+### **✅ Key Points:**
 - **Time Complexity:** `O(N)`, as each element is pushed/popped once.
 - **Space Complexity:** `O(N)`, for `left[]`, `right[]`, and stack.
 
 ---
 
-By using **Method 2**, we significantly reduce computation time from `O(N²)` to `O(N)`. 🚀🔥
+## **📌 Dry Run Example**
+### **Input:**
+`arr = [3, 1, 2, 4]`
 
-### Understanding the Approach
+### **Step 1: Compute prevSmallest(arr)**
 
-#### Find Previous Smaller (`prevSmallest`)
-- `left[i]` stores the index of the previous smaller element for `arr[i]`.
-- If no smaller element exists, store `-1`.
+| i  | arr[i] | Stack (Indexes) | Popping Condition | left[i] Update | Final Stack |
+|----|--------|----------------|------------------|----------------|-------------|
+| 0  | 3      | Empty → Push 0 | No pop (stack empty) | -1 | [0] |
+| 1  | 1      | Stack [0] | Pop 0 (3 > 1) | -1 | [1] |
+| 2  | 2      | Stack [1] | No pop (1 < 2) | 1 | [1,2] |
+| 3  | 4      | Stack [1,2] | No pop (2 < 4) | 2 | [1,2,3] |
 
-#### Find Next Smaller (`nextLowest`)
-- `right[i]` stores the index of the next smaller element for `arr[i]`.
-- If no smaller element exists, store `n` (since it contributes till the end).
+**Output:** `left = [-1, -1, 1, 2]`
 
-### Handling Duplicates
-- We use `>=` to pop duplicates, ensuring that they don’t incorrectly contribute to subarrays.
+### **Step 2: Compute nextLowest(arr)**
 
-### Compute Contribution of Each Element (`sumSubarrayMins`)
-- `width = (i - left[i]) * (right[i] - i)`: This counts the number of subarrays where `arr[i]` is the minimum.
-- Final sum is calculated using:
-  ```java
-  sum = (sum + arr[i] * width) % mod;
-  ```
+| i  | arr[i] | Stack (Indexes) | Popping Condition | right[i] Update | Final Stack |
+|----|--------|----------------|------------------|-----------------|-------------|
+| 3  | 4      | Empty → Push 3 | No pop (stack empty) | 4 | [3] |
+| 2  | 2      | Stack [3] | Pop 3 (4 >= 2) | 3 | [2] |
+| 1  | 1      | Stack [2] | Pop 2 (2 >= 1) | 4 | [1] |
+| 0  | 3      | Stack [1] | No pop (1 < 3) | 1 | [1,0] |
 
-### Dry Run Example
-**Input:**
-```java
-arr = [3, 1, 2, 4];
-```
+**Output:** `right = [1, 4, 3, 4]`
 
-#### Step 1: Compute `prevSmallest(arr)`
-```java
-left = [-1, -1, 1, 2];
-```
+### **Step 3: Compute Sum Using Contribution Formula**
 
-#### Step 2: Compute `nextLowest(arr)`
-```java
-right = [1, 4, 3, 4];
-```
+`width = (i - left[i]) * (right[i] - i);`
 
-#### Step 3: Compute Sum Using Contribution Formula
-```java
-Final Sum = 17
-```
+Final Sum: **`17`**
 
-### Optimized Complexity
-- Finding `left[]` and `right[]` using stacks: `O(N)`
-- Final sum calculation: `O(N)`
-- **Overall Complexity:** `O(N)` 🔥
+---
 
-### Key Takeaways
-✅ Use `>=` in `nextLowest()` to correctly handle duplicates and ensure the next smaller element is found.
-✅ Store indices, not values, in `left[]` and `right[]`, since they help calculate the width.
-✅ Formula: `(i - left[i]) * (right[i] - i)` gives the count of subarrays where `arr[i]` is the minimum.
-✅ Modulo is applied at every step to prevent integer overflow.
+🚀 **Optimized Complexity:** `O(N)`, much better than `O(N²)`. 🔥
