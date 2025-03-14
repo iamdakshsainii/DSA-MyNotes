@@ -1,4 +1,5 @@
 **💡 Problem: Sum of Subarray Minimums**
+in**Method 2** -> please check concept of overflow before method 2 in lookup folder as it is major point to focus you can get code but there are some xcase you cant imagine but exist need to look for long and int so focus o that part of code also
 
 ### **📝 Problem Statement**
 Given an array `arr` of integers, find the sum of the **minimum value** of all its subarrays. The answer should be returned **modulo** `(1e9 + 7)`.
