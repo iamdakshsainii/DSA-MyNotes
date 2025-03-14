@@ -66,51 +66,60 @@ class Solution {
 ### **🔹 Code:**
 ```java
 class Solution {
-  public int sumSubarrayMins(int[] arr) {
-    int n = arr.length;
-    long sum = 0;
-    int mod = (int) 1e9 + 7;
-
-    int[] left = prevSmallest(arr);
-    int[] right = nextLowest(arr);
-
-    for (int i = 0; i < n; i++) {
-      long totalContri = (long) (i - left[i]) * (right[i] - i);
-      sum = (sum + totalContri * arr[i]) % mod;
-    }
-    return (int) sum;
+  public int[] prevSmallest(int[] arr){
+     int n = arr.length;
+     int[] left = new int[n];
+     Arrays.fill(left,-1);
+     Stack<Integer> st = new Stack<>();
+     for(int i =0;i<n;i++){
+           if(st.isEmpty()){
+              st.push(i);
+           }
+           else {
+             while(!st.isEmpty() && arr[st.peek()] > arr[i]){
+                 st.pop();
+             }
+             left[i] = st.isEmpty() ? -1  : st.peek();
+             st.push(i);
+           }
+     }
+     return left;
   }
 
-  public int[] prevSmallest(int[] arr) {
-    int n = arr.length;
-    int[] left = new int[n];
-    Stack<Integer> st = new Stack<>();
-    Arrays.fill(left, -1);
+    public int[] nextLowest(int[] arr){
+     int n = arr.length;
+     int[] right = new int[n];
+     // n fill because we compare from last side so it may possible ki last bhi bda hi ho (abhi nhi smjh aya t oex 1 dry run krlo)
+     Arrays.fill(right,n);
+     Stack<Integer> st2 = new Stack<>();
+     for(int i= n-1;i>=0;i--){
+           if(st2.isEmpty()){
+              st2.push(i);
+           }
 
-    for (int i = 0; i < n; i++) {
-      while (!st.isEmpty() && arr[st.peek()] >= arr[i]) {
-        st.pop();
-      }
-      left[i] = st.isEmpty() ? -1 : st.peek();
-      st.push(i);
-    }
-    return left;
-  }
-
-  public int[] nextLowest(int[] arr) {
-    int n = arr.length;
-    int[] right = new int[n];
-    Stack<Integer> st = new Stack<>();
-    Arrays.fill(right, n);
-
-    for (int i = n - 1; i >= 0; i--) {
-      while (!st.isEmpty() && arr[st.peek()] > arr[i]) {
-        st.pop();
-      }
-      right[i] = st.isEmpty() ? n : st.peek();
-      st.push(i);
-    }
+           else {
+            // important thing is -> to handle duplicate as it dont contribute to subarray so pop
+             while(!st2.isEmpty() && arr[st2.peek()] >= arr[i]){
+                 st2.pop();
+             }
+             right[i] = st2.isEmpty() ? n : st2.peek();
+             st2.push(i);
+           }
+     }
     return right;
+  }
+
+  public int sumSubarrayMins(int[] arr) {
+    int[] arrL = prevSmallest(arr);
+    int[] arrR = nextLowest(arr);
+    int n = arr.length;
+    long sum=0;
+    int mod = ((int) 1e9 + 7);
+    for(int i = 0;i<n;i++){
+      long totalContri = (long) ((i - arrL[i]) * (arrR[i] - i));
+      sum = (sum + totalContri * (long)arr[i]) % mod;
+    }
+    return (int)(sum);
   }
 }
 ```
