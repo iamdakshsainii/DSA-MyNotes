@@ -1,7 +1,6 @@
 ### **Queue Implementation Using Stacks**
 
-![alt text](<WhatsApp Image 2025-03-09 at 18.25.33_b3da251b.jpg>)
-
+![alt text](stackqueue.jpg)
 
 #### **1. Concept Overview**
 
