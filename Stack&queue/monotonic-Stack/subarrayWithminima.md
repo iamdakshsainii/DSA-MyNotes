@@ -1,5 +1,14 @@
 **💡 Problem: Sum of Subarray Minimums**
-in**Method 2** -> please check concept of overflow before method 2 in lookup folder as it is major point to focus you can get code but there are some xcase you cant imagine but exist need to look for long and int so focus o that part of code also
+
+![alt text](<WhatsApp Image 2025-03-15 at 19.32.44_441abfbc.jpg>)
+
+**Lookup Points- Revision** ->
+1. overflow conditions (long and int) - please check concept of overflow before method 2 in lookup folder as it is major point to focus you can get code but there are some xcase you cant imagine but exist need to look for long and int so focus o that part of code also
+
+2. in next greatest you need to popout equal elements also see in picture as theyt can possibly create duplicates refer example - [2,6,2,4,2] just make subarrays of all 3 2s and you get so many duplicates there so we need to pop out from stack for next one
+
+3. no need for previous to pop as they dont contribute to subarray
+
 
 ### **📝 Problem Statement**
 Given an array `arr` of integers, find the sum of the **minimum value** of all its subarrays. The answer should be returned **modulo** `(1e9 + 7)`.
