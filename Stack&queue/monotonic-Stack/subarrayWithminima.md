@@ -9,6 +9,16 @@
 
 3. no need for previous to pop as they dont contribute to subarray
 
+Key Difference in Left (prevSmallest) and Right (nextLowest)
+💡 **Goal of prevSmallest():**
+We find the nearest smaller element on the left.
+Duplicates are fine because they don’t affect how many valid subarrays exist.
+
+💡 **Goal of nextLowest():**
+We find the nearest smaller element on the right.
+Duplicates must be popped to avoid double-counting subarrays.
+
+
 
 ### **📝 Problem Statement**
 Given an array `arr` of integers, find the sum of the **minimum value** of all its subarrays. The answer should be returned **modulo** `(1e9 + 7)`.
