@@ -7,7 +7,7 @@
 
 2. in next greatest you need to popout equal elements also see in picture as theyt can possibly create duplicates refer example - [2,6,2,4,2] just make subarrays of all 3 2s and you get so many duplicates there so we need to pop out from stack for next one
 
-3. no need for previous to pop as they dont contribute to subarray
+3. no need for previous to pop as they dont contribute to subarray.
 
 Key Difference in Left (prevSmallest) and Right (nextLowest)
 💡 **Goal of prevSmallest():**
@@ -84,7 +84,7 @@ class Solution {
 
 ### **🔹 Code:**
 ```java
-class Solution {
+cclass Solution {
   public int[] prevSmallest(int[] arr){
      int n = arr.length;
      int[] left = new int[n];
@@ -95,6 +95,8 @@ class Solution {
               st.push(i);
            }
            else {
+            // target h ki left m sabse chota index chahiye to
+            // bde stack m mt rhne do kyuki at the end yhi left array m dalenge
              while(!st.isEmpty() && arr[st.peek()] > arr[i]){
                  st.pop();
              }
