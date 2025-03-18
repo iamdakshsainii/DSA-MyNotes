@@ -1,5 +1,5 @@
 # Trapping Rainwater Problem
-
+![alt text](image.png)
 ## Problem Statement
 Given an array `height` of non-negative integers where each index represents the height of a bar, compute how much water can be trapped after raining.
 
