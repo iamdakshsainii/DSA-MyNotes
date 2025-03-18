@@ -233,8 +233,8 @@ Hence the output will be 1 1 1 2 3 5 6.
 
 ### Code Template:
 
+**Method 1**
 ```java
-// method 1
 
 class Solution {
     public int[] stockSpan(int[] arr, int n) {
@@ -255,10 +255,16 @@ class Solution {
        return ans;
     }
 }
+```
 
-// method 2
+**method 2**
+1. previous prevLargest
+2. res[i] = i - left[i]
+
+```java
+
 class Solution {
-    public int[] prevSmallest(int[] arr){
+    public int[] prevLargest(int[] arr){
         int n = arr.length;
         int[] ans = new int[n];
         Stack<Integer> st = new Stack<>();
@@ -273,17 +279,12 @@ class Solution {
     }
     public int[] stockSpan(int[] arr, int n) {
         int[] res = new int[n];
-       int[] prev = prevSmallest(arr);
+       int[] prev = prevLargest(arr);
        for(int i =0;i<n;i++){
           res[i] = i-prev[i];
        }
        return res;
     }
 }
-```
 
-### Example:
-```java
-int[] prices = {100, 80, 60, 70, 60, 75, 85};
-System.out.println(Arrays.toString(stockSpan(prices))); // Output: [1, 1, 1, 2, 1, 4, 6]
 ```
