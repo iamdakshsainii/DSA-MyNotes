@@ -1,6 +1,4 @@
-package String;
-// problem Statement
-// Make String a Subsequence Using Cyclic Increments
+
 
 // You are given two 0-indexed strings str1 and str2.
 // In an operation, you select a set of indices in str1, and for each
