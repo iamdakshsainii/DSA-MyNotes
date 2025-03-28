@@ -1,12 +1,11 @@
-# Sorting a String in Java
+### **Sorting a String in Java**
 
-## Problem Statement:
-
+## **Problem Statement:**
 Given a string consisting of lowercase English letters, the goal is to return the string sorted in lexicographical order.
 
 ---
 
-## Example:
+## **Example:**
 
 **Input:** "coding"
 
@@ -14,7 +13,7 @@ Given a string consisting of lowercase English letters, the goal is to return th
 
 ---
 
-## Approach & Intuition:
+## **Approach & Intuition:**
 
 ### **Method 1: Counting Sort (Optimized for Lowercase Letters)**
 
@@ -42,17 +41,60 @@ class Solution  {
         // Build sorted string
         StringBuilder ans = new StringBuilder();
         for(int i = 0; i < 26; i++){
-           char ch = (char)('a' + i); // Convert index back to character
-             for(int j = 0; j < cnt[i]; j++){ // Append character cnt[i] times
+            char ch = (char)('a' + i); // Convert index back to character
+            for(int j = 0; j < cnt[i]; j++){ // Append character cnt[i] times
                 ans.append(ch);
-    }
-}
-
+            }
+        }
 
         return ans.toString();
     }
 }
 ```
+
+### **Explanation of How Frequency Helps in Sorting**
+
+The idea behind **Counting Sort** is that instead of directly sorting elements, we count how many times each element appears and then reconstruct the sorted array based on this frequency.
+
+#### **Step-by-Step Explanation:**
+1. **Count Occurrences:**
+   - Create an array `cnt[26]` where each index represents a letter (`'a'` to `'z'`).
+   - Traverse the string and **increment the corresponding index** for each character.
+
+2. **Reconstruct Sorted String:**
+   - Traverse the `cnt` array from index `0` to `25` (which represents `'a'` to `'z'`).
+   - Append each character to the result **`cnt[i]` times**, maintaining order.
+
+---
+
+#### **Example Dry Run**
+**Input:** `"coding"`
+
+##### **Step 1: Count Frequencies**
+| Character | Frequency (`cnt` array) |
+|-----------|------------------------|
+| `'a'` - `'z'` | `[0,0,1,1,1,0,1,0,1,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0]` |
+
+##### **Step 2: Reconstruct the Sorted String**
+- **Iterate over `cnt` array:**
+  - `'c'` appears **once**, so append `'c'`
+  - `'d'` appears **once**, so append `'d'`
+  - `'g'` appears **once**, so append `'g'`
+  - `'i'` appears **once**, so append `'i'`
+  - `'n'` appears **once**, so append `'n'`
+  - `'o'` appears **once**, so append `'o'`
+
+#### **Final Sorted Output:** `"cdgino"`
+
+### **Why This Works for Sorting?**
+- Since we **process letters in order from `'a'` to `'z'`**, the final result is always **sorted**.
+- The counting process ensures the correct number of occurrences, and reconstruction keeps characters in their correct lexicographical positions.
+- Even if a character **doesn't appear** in the input string (like `'a'`, `'b'`, etc.), it is **processed but appended zero times**, having no effect on the output.
+
+#### **Time Complexity:** **O(n)**
+- Counting step → **O(n)**
+- Reconstructing string → **O(26) ≈ O(1)**
+- Overall complexity → **O(n)** (better than O(n log n) sorting algorithms for small fixed sets like alphabets).
 
 ---
 
