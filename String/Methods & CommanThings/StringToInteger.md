@@ -25,7 +25,7 @@ public class StringToInteger {
 
 ### Java program demonstrating various string and number operations
 
-**Problem 1** -> Problem 1: Sum of Numbers in a String
+### Problem 1 -> Problem 1: Sum of Numbers in a String
 ```java
 import java.util.*;
 
