@@ -43,6 +43,9 @@ public class StringNumberProblems {
                 }
             }
         }
+
+        // If condition at the end ensures the last number is added
+        // Without this, if the last character was a digit, it would be ignored
         if (!num.isEmpty()) sum += Integer.parseInt(num);
         return sum;
     }
