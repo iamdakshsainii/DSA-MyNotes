@@ -2,19 +2,19 @@ import java.util.*;
 
 public class pow {
         public static double myPow(double x, int n) {
-            double exp = n;
+            int exp = n;
            if(exp == 0) return 1;
 
            if(exp < 0){
-            // if (n == Integer.MIN_VALUE) {
-            //     return 1 / (myPow(x, Integer.MAX_VALUE) * x);  // Prevent overflow
-            // }
+            if (n == Integer.MIN_VALUE) {
+                return 1 / (myPow(x, Integer.MAX_VALUE) * x);  // Prevent overflow
+            }
                 x = 1/x;
                 exp = -exp;
            }
 
            if(exp % 2 == 1){
-             return x*myPow(x*x , exp-1);
+             return x*myPow(x , exp-1);
            }
             return myPow(x*x , exp/2);
         }
