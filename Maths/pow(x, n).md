@@ -1,4 +1,4 @@
-**## Problem: Compute ********************************`x^n`******************************** Efficiently**
+**Problem: Compute ********************************`x^n`******************************** Efficiently**
 
 ### **Given:** Base `x` and exponent `n`, compute `x^n` efficiently.
 
@@ -108,4 +108,3 @@ public double myPow(double x, int n) {
 ✅ **Optimized approaches reduce time complexity from ********************************`O(n)`******************************** to ********************************`O(log n)`********************************.**
 
 🚀 **Final Tip:** Always prefer `O(log n)` approaches over brute force!
-
