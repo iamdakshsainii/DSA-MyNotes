@@ -40,7 +40,18 @@ public double myPow(double x, int n) {
 - **Idea:** Use `x^n = x^(n/2) * x^(n/2)` for even `n` and `x^n = x^(n-1) * x` for odd `n`.
 - **Bit Manipulation:**  we are using exponent to half so instead directly half we can replace division with right shift (`n >> 1`), and also modulo of checking odd and even with bitwise AND (`n & 1`).
 - **Important Note:** Handle `Integer.MIN_VALUE` or use `double` to prevent overflow.
-
+ **Handle negative exponent :**
+ ```java
+        if (n < 0) {
+            if (n == Integer.MIN_VALUE) {
+                return 1 / (myPow(x, Integer.MAX_VALUE) * x);  // Prevent overflow
+            }
+            x = 1 / x;
+            n = -n;
+        }
+```
+ this is becuase i can find one lesser which can be not in out of range then simply multiply by x to make it exact and divide to make it negative.
+ 
 #### **Code:**
 
 ```java
