@@ -1,53 +1,67 @@
-| **#** | **Question Name** | **Category** | **Difficulty** | **Link** |
-|----|------------------------------|------------|------------|------------------------------------------------------------|
-| 1  | Two Sum                     | Searching  | Easy       | https://leetcode.com/problems/two-sum/                   |
-| 2  | Best Time to Buy and Sell Stock | Greedy | Easy       | https://leetcode.com/problems/best-time-to-buy-and-sell-stock/ |
-| 3  | Contains Duplicate          | Hashing    | Easy       | https://leetcode.com/problems/contains-duplicate/        |
-| 4  | Product of Array Except Self | Prefix Sum | Medium    | https://leetcode.com/problems/product-of-array-except-self/ |
-| 5  | Maximum Subarray            | Kadane’s Algo | Medium   | https://leetcode.com/problems/maximum-subarray/         |
-| 6  | Maximum Product Subarray    | DP         | Medium     | https://leetcode.com/problems/maximum-product-subarray/  |
-| 7  | Find Minimum in Rotated Sorted Array | Binary Search | Medium | https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/ |
-| 8  | Search in Rotated Sorted Array | Binary Search | Medium | https://leetcode.com/problems/search-in-rotated-sorted-array/ |
-| 9  | 3Sum                        | Two Pointers | Medium   | https://leetcode.com/problems/3sum/                      |
-| 10 | 4Sum                        | Two Pointers | Medium   | https://leetcode.com/problems/4sum/                      |
-| 11 | Merge Intervals             | Sorting    | Medium     | https://leetcode.com/problems/merge-intervals/           |
-| 12 | Insert Interval             | Sorting    | Medium     | https://leetcode.com/problems/insert-interval/           |
-| 13 | Non-overlapping Intervals   | Greedy     | Medium     | https://leetcode.com/problems/non-overlapping-intervals/ |
-| 14 | Meeting Rooms II            | Heap       | Medium     | https://leetcode.com/problems/meeting-rooms-ii/          |
-| 15 | Subarray Sum Equals K       | Hashing    | Medium     | https://leetcode.com/problems/subarray-sum-equals-k/     |
-| 16 | Longest Consecutive Sequence | Sorting  | Medium     | https://leetcode.com/problems/longest-consecutive-sequence/ |
-| 17 | Shortest Unsorted Continuous Subarray | Sorting | Medium | https://leetcode.com/problems/shortest-unsorted-continuous-subarray/ |
-| 18 | Next Permutation            | Math       | Medium     | https://leetcode.com/problems/next-permutation/          |
-| 19 | Largest Rectangle in Histogram | Stack | Hard      | https://leetcode.com/problems/largest-rectangle-in-histogram/ |
-| 20 | Trapping Rain Water         | Two Pointers | Hard    | https://leetcode.com/problems/trapping-rain-water/       |
-| 21 | Sliding Window Maximum      | Deque      | Hard       | https://leetcode.com/problems/sliding-window-maximum/    |
-| 22 | Median of Two Sorted Arrays | Binary Search | Hard | https://leetcode.com/problems/median-of-two-sorted-arrays/ |
-| 23 | First Missing Positive      | Bucket Sort | Hard     | https://leetcode.com/problems/first-missing-positive/    |
-| 24 | Find the Duplicate Number   | Binary Search | Medium | https://leetcode.com/problems/find-the-duplicate-number/ |
-| 25 | Set Matrix Zeroes           | Matrix     | Medium     | https://leetcode.com/problems/set-matrix-zeroes/         |
-| 26 | Spiral Matrix               | Matrix     | Medium     | https://leetcode.com/problems/spiral-matrix/             |
-| 27 | Rotate Image                | Matrix     | Medium     | https://leetcode.com/problems/rotate-image/              |
-| 28 | Word Search                 | Backtracking | Medium | https://leetcode.com/problems/word-search/               |
-| 29 | Largest Number              | Sorting    | Medium     | https://leetcode.com/problems/largest-number/            |
-| 30 | Combination Sum             | Backtracking | Medium | https://leetcode.com/problems/combination-sum/           |
-| 31 | Subsets                     | Backtracking | Medium | https://leetcode.com/problems/subsets/                    |
-| 32 | Permutations                | Backtracking | Medium | https://leetcode.com/problems/permutations/              |
-| 33 | Jump Game                   | Greedy     | Medium     | https://leetcode.com/problems/jump-game/                 |
-| 34 | Jump Game II                | Greedy     | Hard       | https://leetcode.com/problems/jump-game-ii/              |
-| 35 | Candy                       | Greedy     | Hard       | https://leetcode.com/problems/candy/                      |
-| 36 | Gas Station                 | Greedy     | Medium     | https://leetcode.com/problems/gas-station/               |
-| 37 | Car Fleet                   | Sorting    | Medium     | https://leetcode.com/problems/car-fleet/                 |
-| 38 | Task Scheduler              | Greedy     | Medium     | https://leetcode.com/problems/task-scheduler/            |
-| 39 | Find All Anagrams in a String | Sliding Window | Medium | https://leetcode.com/problems/find-all-anagrams-in-a-string/ |
-| 40 | Longest Repeating Character Replacement | Sliding Window | Medium | https://leetcode.com/problems/longest-repeating-character-replacement/ |
-| 41 | Minimum Window Substring     | Sliding Window | Hard | https://leetcode.com/problems/minimum-window-substring/  |
-| 42 | Kth Largest Element in an Array | Heap | Medium | https://leetcode.com/problems/kth-largest-element-in-an-array/ |
-| 43 | Top K Frequent Elements      | Heap       | Medium     | https://leetcode.com/problems/top-k-frequent-elements/   |
-| 44 | Sort Colors                 | Sorting    | Medium     | https://leetcode.com/problems/sort-colors/               |
-| 45 | Minimum Number of Arrows to Burst Balloons | Greedy | Medium | https://leetcode.com/problems/minimum-number-of-arrows-to-burst-balloons/ |
-| 46 | Find Right Interval          | Binary Search | Medium | https://leetcode.com/problems/find-right-interval/        |
-| 47 | Valid Sudoku                | Matrix     | Medium     | https://leetcode.com/problems/valid-sudoku/              |
-| 48 | Search a 2D Matrix          | Binary Search | Medium | https://leetcode.com/problems/search-a-2d-matrix/         |
-| 49 | Count Primes                | Math       | Medium     | https://leetcode.com/problems/count-primes/              |
-| 50 | Super Egg Drop              | DP         | Hard       | https://leetcode.com/problems/super-egg-drop/            |
+# Array Problems Categorized by Difficulty
+
+## Easy Problems
+
+| Problem Name | Platform | Link |
+|-------------|----------|------|
+| Second Largest Element | GeeksforGeeks | https://www.geeksforgeeks.org/second-largest-element-in-array/ |
+| Third Largest Element | GeeksforGeeks | https://www.geeksforgeeks.org/third-largest-element-in-array/ |
+| Three Great Candidates | GeeksforGeeks | https://www.geeksforgeeks.org/three-great-candidates/ |
+| Max Consecutive Ones | LeetCode | https://leetcode.com/problems/max-consecutive-ones/ |
+| Move All Zeroes To End | GeeksforGeeks | https://www.geeksforgeeks.org/move-zeroes-end-array/ |
+| Reverse Array in Groups | GeeksforGeeks | https://www.geeksforgeeks.org/reverse-array-groups/ |
+| Rotate Array | LeetCode | https://leetcode.com/problems/rotate-array/ |
+| Wave Array | GeeksforGeeks | https://www.geeksforgeeks.org/sort-array-wave-form/ |
+| Plus One | LeetCode | https://leetcode.com/problems/plus-one/ |
+| Stock Buy and Sell – One Transaction | LeetCode | https://leetcode.com/problems/best-time-to-buy-and-sell-stock/ |
+| Repetitive Addition Of Digits | LeetCode | https://leetcode.com/problems/add-digits/ |
+| Remove All Occurrences of Element | LeetCode | https://leetcode.com/problems/remove-element/ |
+| Remove Duplicates from Sorted Array | LeetCode | https://leetcode.com/problems/remove-duplicates-from-sorted-array/ |
+| Alternate Positive Negative | GeeksforGeeks | https://www.geeksforgeeks.org/rearrange-array-alternating-positive-negative-items/ |
+| Insert Duplicate Element | LeetCode | https://leetcode.com/problems/find-the-duplicate-number/ |
+| Array Leaders | GeeksforGeeks | https://www.geeksforgeeks.org/leaders-in-an-array/ |
+| Missing and Repeating in Array | GeeksforGeeks | https://www.geeksforgeeks.org/find-missing-and-repeating-number/ |
+| Missing Ranges of Numbers | LeetCode | https://leetcode.com/problems/missing-ranges/ |
+
+## Medium Problems
+
+| Problem Name | Platform | Link |
+|-------------|----------|------|
+| Next Permutation | LeetCode | https://leetcode.com/problems/next-permutation/ |
+| Majority Element | LeetCode | https://leetcode.com/problems/majority-element/ |
+| Majority Element II | LeetCode | https://leetcode.com/problems/majority-element-ii/ |
+| Stock Buy and Sell – Multiple Transactions | LeetCode | https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/ |
+| Minimize the Heights II | GeeksforGeeks | https://www.geeksforgeeks.org/minimize-the-maximum-difference-between-heights/ |
+| Maximum Subarray Sum | LeetCode | https://leetcode.com/problems/maximum-subarray/ |
+| Maximum Product Subarray | LeetCode | https://leetcode.com/problems/maximum-product-subarray/ |
+| Product of Array Except Self | LeetCode | https://leetcode.com/problems/product-of-array-except-self/ |
+| Subarrays with Product Less Than K | LeetCode | https://leetcode.com/problems/subarray-product-less-than-k/ |
+| Split Into Three Equal Sum Segments | LeetCode | https://leetcode.com/problems/split-array-into-three-equal-parts/ |
+| Maximum Consecutive 1s After Flipping 0s | LeetCode | https://leetcode.com/problems/max-consecutive-ones-ii/ |
+| Last Moment Before Ants Fall Out of Plank | LeetCode | https://leetcode.com/problems/last-moment-before-all-ants-fall-out-of-a-plank/ |
+| Find 0 with Farthest 1s in a Binary | GeeksforGeeks | https://www.geeksforgeeks.org/find-zero-replace-one-get-longest-continuous-ones/ |
+| Intersection of Interval Lists | LeetCode | https://leetcode.com/problems/interval-list-intersections/ |
+| Rearrange Array Elements by Sign | GeeksforGeeks | https://www.geeksforgeeks.org/rearrange-array-such-that-even-positioned-are-greater-than-odd/ |
+| Meeting Scheduler for Two Persons | LeetCode | https://leetcode.com/problems/meeting-scheduler/ |
+| Longest Mountain Subarray | LeetCode | https://leetcode.com/problems/longest-mountain-in-array/ |
+| Transform and Sort Array | LeetCode | https://leetcode.com/problems/sort-array-by-increasing-frequency/ |
+| Minimum Swaps To Group All Ones | LeetCode | https://leetcode.com/problems/minimum-swaps-to-group-all-1s-together/ |
+| Minimum Moves To Equalize Array | LeetCode | https://leetcode.com/problems/minimum-moves-to-equal-array-elements/ |
+| Minimum Indices To Equal Even-Odd Sums | LeetCode | https://leetcode.com/problems/find-the-middle-index-in-array/ |
+
+## Hard Problems
+
+| Problem Name | Platform | Link |
+|-------------|----------|------|
+| Trapping Rain Water | LeetCode | https://leetcode.com/problems/trapping-rain-water/ |
+| Maximum Circular Subarray Sum | LeetCode | https://leetcode.com/problems/maximum-sum-circular-subarray/ |
+| Smallest Missing Positive Number | LeetCode | https://leetcode.com/problems/first-missing-positive/ |
+| Jump Game | LeetCode | https://leetcode.com/problems/jump-game/ |
+| Closest Subsequence Sum | LeetCode | https://leetcode.com/problems/closest-subsequence-sum/ |
+| Smallest Non-Representable Sum in Array | GeeksforGeeks | https://www.geeksforgeeks.org/find-smallest-value-represented-sum-subset-given-array/ |
+| Smallest Range Having Elements From K Lists | LeetCode | https://leetcode.com/problems/smallest-range-covering-elements-from-k-lists/ |
+| Candy Distribution | LeetCode | https://leetcode.com/problems/candy/ |
+| Count Subarrays with K Distinct Elements | LeetCode | https://leetcode.com/problems/subarrays-with-k-different-integers/ |
+| Next Smallest Palindrome | GeeksforGeeks | https://www.geeksforgeeks.org/next-smallest-palindrome/ |
+| Maximum Sum Among All Rotations | GeeksforGeeks | https://www.geeksforgeeks.org/maximum-sum-iarri-among-rotations-given-array/ |
 
