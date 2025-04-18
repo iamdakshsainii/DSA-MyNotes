@@ -1,26 +1,18 @@
-# Power Set Using Bit Manipulation
+## Power Set using Bit Manipulation
 
-## Approach
-1. **Understanding Power Set**:
-   - The power set of a given set contains all possible subsets, including the empty set and the set itself.
-   - If a set has `n` elements, its power set will have `2^n` subsets.
+### 📌 Problem:
 
-2. **Using Bit Manipulation**:
-   - Every subset can be represented as a binary number ranging from `0` to `2^n - 1`.
-   - Each bit in the binary representation determines whether to include the corresponding element in the subset.
+Given an array of integers `nums`, return **all possible subsets (the power set)**.
 
-3. **Steps**:
-   - Find `size = 1 << n` (which is `2^n`), representing the total number of subsets.
-   - Iterate over numbers from `0` to `size - 1`.
-   - For each number, check which bits are set using `(ele & (1 << i))`.
-   - If a bit is set, include the corresponding element in the subset.
-   - Add the subset to the result list.
+### 🎯 Objective:
 
-## Code Implementation
+Generate all subsets using **bit manipulation** (no recursion).
+
+---
+
+### ✅ Approach: Bit Manipulation
 
 ```java
-import java.util.*;
-
 class Solution {
     public List<List<Integer>> powerSet(int[] nums) {
         int n = nums.length;
@@ -41,23 +33,70 @@ class Solution {
 }
 ```
 
-## Complexity Analysis
-- **Time Complexity**: `O(n * 2^n)`, since we iterate `2^n` times, and each subset can take `O(n)` time to generate.
-- **Space Complexity**: `O(n * 2^n)`, since we store all subsets in the result list.
+---
 
-## Example
+### 🧠 Step-by-Step Explanation:
+
+#### 1. `int size = 1 << n;`
+
+- Calculates `2^n`, total number of subsets
+- Each number from `0` to `2^n - 1` represents a subset via its **binary bits**
+
+#### 2. Outer loop: `for (int ele = 0; ele < size; ele++)`
+
+- Loops through all possible `2^n` bitmasks
+
+#### 3. Inner loop: `for (int i = 0; i < n; i++)`
+
+- For each bit in `ele`, check if it's set using:
+
 ```java
-public class Main {
-    public static void main(String[] args) {
-        Solution sol = new Solution();
-        int[] nums = {1, 2, 3};
-        List<List<Integer>> subsets = sol.powerSet(nums);
-        System.out.println(subsets);
-    }
-}
+(ele & (1 << i)) != 0
 ```
 
-**Output:**
+- If yes, include `nums[i]` in the current subset
+
+#### 4. Add the constructed subset to `result`
+
+---
+
+### 🧪 Dry Run Example
+
+Input: `nums = [1, 2]`
+
+- `n = 2`
+- `size = 1 << 2 = 4`
+
+| ele (decimal) | ele (binary) | Bits Interpretation  | Subset |
+| ------------- | ------------ | -------------------- | ------ |
+| 0             | 00           | exclude 1, exclude 2 | []     |
+| 1             | 01           | include 1, exclude 2 | [1]    |
+| 2             | 10           | exclude 1, include 2 | [2]    |
+| 3             | 11           | include 1, include 2 | [1, 2] |
+
+### 🔚 Final Output:
+
+```java
+[[], [1], [2], [1, 2]]
 ```
-[[], [1], [2], [1, 2], [3], [1, 3], [2, 3], [1, 2, 3]]
-```
+
+### 🧩 Bit Manipulation Concepts Used:
+
+#### ✅ `1 << n`
+
+- **Left shift** operator — shifts `1` to the left by `n` positions.
+- Equivalent to `2^n` (used to calculate total number of subsets).
+
+#### ✅ `(ele & (1 << i))`
+
+- **Bitwise AND** used to check if the `i-th` bit is set in `ele`.
+- `1 << i` sets only the `i-th` bit ON (all others are 0).
+- `&` checks if that bit is also ON in `ele` → meaning include `nums[i]`
+
+#### ✅ Binary Representation of Numbers:
+
+- Numbers from `0` to `2^n - 1` represent subset combinations.
+- Each bit = a decision → `0` = exclude, `1` = include
+
+---
+
