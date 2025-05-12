@@ -13,10 +13,3 @@ This section covers **array-based problems** commonly asked in **coding intervie
 2. [Maximum Subarray](./kadane.java) → Kadane’s Algorithm O(n).
 3. [Merge Sorted Arrays](./merge_sorted.java) → Optimal merging technique.
 
-## 🛠 How to Use?
-Clone the repo and start practicing:
-```sh
-git clone https://github.com/yourusername/DSA.git
-cd DSA/Arrays
-javac problem1.java
-java problem1
