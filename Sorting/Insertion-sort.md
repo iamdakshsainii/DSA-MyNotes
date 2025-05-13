@@ -13,6 +13,7 @@ Insertion Sort is a **simple sorting algorithm** that works like how we sort pla
 - Insert the `key` at the right position.
 
 ![alt text](image-1.png)
+![alt text](image-2.png)
 
 ## 📦 Time & Space Complexity
 | Case       | Time   | Explanation            |
