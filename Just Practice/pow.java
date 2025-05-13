@@ -19,13 +19,13 @@ public class pow {
             return myPow(x*x , exp/2);
         }
    public static void main(String[] args) {
-            Scanner sc = new Scanner(System.in);
+            try (Scanner sc = new Scanner(System.in)) {
                 System.out.println("Enter base :");
                 double x = sc.nextDouble();
                 System.out.println("Enter exponent :");
                 int n = sc.nextInt();
                 double result = myPow(x,n);
-            System.out.println("Power of " + x + " is :" + result );
-            sc.close();
+                System.out.println("Power of " + x + " is :" + result );
+            }
 }
 }
