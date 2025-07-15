@@ -121,8 +121,51 @@ class Solution {
 }
 ```
 
-### Optimal
+### Better
 ```java
+class Solution {
+    public List<List<Integer>> fourSum(int[] nums, int target) {
+        List<List<Integer>> ans = new ArrayList<>();
+        int n = nums.length;
+
+        // Set to store unique quadruplets
+        Set<List<Integer>> set = new HashSet<>();
+
+        for (int i = 0; i < n; i++) {
+            for (int j = i + 1; j < n; j++) {
+                Set<Long> hashset = new HashSet<>();
+
+                for (int k = j + 1; k < n; k++) {
+                    long sum = (long) nums[i] + nums[j] + nums[k];
+                    long fourth = (long) target - sum;
+
+                    if (hashset.contains(fourth)) {
+                        List<Integer> temp = Arrays.asList(nums[i], nums[j], nums[k], (int) fourth);
+                        Collections.sort(temp);
+                        set.add(temp);
+                    }
+
+                    hashset.add((long) nums[k]);
+                }
+            }
+        }
+
+        List<List<Integer>> resultList = new ArrayList<>();
+        for (List<Integer> list : set) {
+            resultList.add(new ArrayList<>(list));
+        }
+
+        return resultList;
+    }
+}
+
+```
+
+## Optimal
+
+```java
+import java.util.*;
+
 class Solution {
     public List<List<Integer>> fourSum(int[] nums, int target) {
         List<List<Integer>> ans = new ArrayList<>();
@@ -140,7 +183,6 @@ class Solution {
             for (int j = i + 1; j < n; j++) {
                 // Skip duplicates for j
                 if (j > i + 1 && nums[j] == nums[j - 1])
-                
                     continue;
 
                 // Two pointers approach
@@ -171,5 +213,26 @@ class Solution {
 
         return ans;
     }
+
+    public static void main(String[] args) {
+        int[] nums = {4, 3, 3, 4, 4, 2, 1, 2, 1, 1};
+        int target = 9;
+
+        // Create an instance of Solution class
+        Solution sol = new Solution();
+
+        List<List<Integer>> ans = sol.fourSum(nums, target);
+
+        // Print the result
+        System.out.println("The quadruplets are: ");
+        for (List<Integer> quad : ans) {
+            System.out.print("[");
+            for (int num : quad) {
+                System.out.print(num + " ");
+            }
+            System.out.println("]");
+        }
+    }
 }
+
 ```
